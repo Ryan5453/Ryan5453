@@ -1,0 +1,139 @@
+\documentclass[a4paper]{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=0.8in,right=0.8in,bottom=0.8in,top=0.8in]{geometry}
+\usepackage{lmodern}  % Use Latin Modern font
+\usepackage{hyperref}
+
+\textheight=10in
+\pagestyle{empty}
+\raggedright
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+% DEFINITIONS FOR RESUME
+\newcommand{\area}[2]{
+    \vspace*{-9pt}
+    \begin{verse}
+        \textbf{#1}   #2
+    \end{verse}
+}
+
+\newcommand{\lineunder}{
+    \vspace*{-8pt} \\
+    \hspace*{-18pt} \hrulefill \\
+}
+
+\newcommand{\header}[1]{
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \lineunder
+}
+
+\newcommand{\employer}[3]{
+    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
+}
+
+\newcommand{\contact}[3]{
+    \vspace*{-10pt}
+    \begin{center}
+        {\Huge \scshape {#1}}\\
+        #2 \\ #3
+    \end{center}
+    \vspace*{-8pt}
+}
+
+\newenvironment{achievements}{
+    \begin{list}
+        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
+    \end{list}
+}
+
+\newcommand{\schoolwithcourses}[4]{
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+    \vspace*{5pt}
+}
+
+\newcommand{\school}[4]{
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+}
+
+\begin{document}
+\vspace*{-40pt}
+
+%==== Profile ====%
+\vspace*{-10pt}
+\begin{center}
+    {\Huge \scshape {Ryan Fahey}}\\
+    Boston, MA $\cdot$ fahey.rya@northeastern.edu $\cdot$ 774-419-2756 $\cdot$ \href{https://ryan.science}{https://ryan.science}\\
+    Availability: January - June 2025\\
+\end{center}
+
+%==== Education Category ====%
+
+\header{Education}
+\textbf{Northeastern University}\hfill Boston, MA\\
+Bachelors of Science in Computer Science, \textit{GPA: 3.572} \hfill September 2023 - June 2027\\
+\vspace{2mm}
+
+%==== Experience Category ====%
+
+\header{Experience}
+\vspace{1mm}
+
+\textbf{Northeastern University} \hfill Boston, MA\\
+\textit{Mechanical \& Industrial Engineering IT Support} \hfill September 2023 - Present\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+    \item Provided 1:1 IT support to professors and graduate students
+    \item Performed hands-on hardware troubleshooting, repairs, and upgrades
+    \item Leveraged Windows Deployment Services (WDS) to efficiently manage and deploy Windows systems
+    \item Developed an efficient workflow to print hundreds of large-format posters for MIE Capstone students
+\end{itemize}
+
+\textbf{Middleborough High School} \hfill Middleborough, MA\\
+\textit{AP Computer Science Principles TA} \hfill September 2022 - December 2022\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+    \item Provided 1:1 help to clarify course concepts and assist with assignments
+    \item Gave feedback on student work and offered guidance to improve understanding
+\end{itemize}
+
+\textbf{TJ Maxx} \hfill Plymouth, MA\\
+\textit{Sales Associate} \hfill May 2022 - September 2022\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+    \item Assisted with receiving and processing new merchandise shipments
+    \item Prepared items for store floor
+\end{itemize}
+
+\header{Skills}
+\begin{tabular}{ l l }
+    Programming Languages: & Python, Java, JavaScript, Rust                                 \\
+    Operating Systems:     & Windows, macOS, Linux                                          \\
+    Technologies:          & Docker, Postgres, MongoDB, Cloudflare, Oracle Cloud, Firewalls \\
+\end{tabular}
+\vspace{2mm}
+
+\header{Projects}
+{\textbf{Flowery}} {\sl Python, Docker, Redis, Tailwind CSS, JavaScript} \hfill https://flowery.pw\\
+Flowery is a free text-to-speech service that allows you to convert text to audio using the web UI or the Flowery API.\\
+\vspace*{2mm}
+{\textbf{SongData (In Development)}} {\sl Python, Postgres} \hfill https://songdata.org\\
+SongData is an online music metadata platform that aggregates data from music streaming services and provides a unified API for access to all data.\\
+\vspace*{2mm}
+{\textbf{music2text (Research)}} {\sl Python, HPC (Discovery Cluster)} \hfill https://github.com/Ryan5453/music2text\\
+This is a research project that I am conducting to measure the effect of background noise on audio transcription. This will eventually conclude with the fine-tuning of OpenAI's Whisper model using the Discovery Research Cluster and a paper with my findings.\\
+\vspace*{2mm}
+
+\header{Awards}
+\textbf{Dean's List} \hfill Northeastern University\\
+Maintained an average GPA of over 3.5 during the Spring 2024 semester \hfill May 2024\\
+\vspace*{2mm}
+
+\end{document}

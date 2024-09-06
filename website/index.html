@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/jpg" href="assets/favicon.ico" />
+  <title>Ryan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900">
+
+  <div class="container max-w-lg mx-auto pt-8 px-4">
+    <div class="flex justify-between items-center">
+      <img class="w-10 h-10 object-cover rounded-full ml-4" src="assets/tessa.jpg">
+      <h1 class="text-3xl font-bold text-gray-300">Ryan</h1>
+      <div class="flex">
+        <a href="https://github.com/Ryan5453" rel="me">
+          <img class="w-6 h-6" src="assets/github.svg" alt="GitHub">
+        </a>
+        <a href="https://twitter.com/Ryan5453" rel="me">
+          <img class="w-6 h-6 ml-3" src="assets/twitter.svg" alt="Twitter">
+        </a>
+        <a href="https://linkedin.com/in/Ryan5453" rel="me">
+          <img class="w-6 h-6 ml-3" src="assets/linkedin.svg" alt="Linkedin">
+        </a>
+        <a href="mailto:ryan@ryan.science" rel="me">
+          <img class="w-6 h-6 ml-3" src="assets/email.svg" alt="Email">
+        </a>
+      </div>
+    </div>
+
+    <hr class="my-5 border-gray-700">
+
+    <p class="text-gray-400">
+      I'm a software engineer from Massachusetts. I attend Northeastern University in Boston as a Computer Science major.
+    </p>
+
+    <hr class="my-5 border-gray-700">
+
+    <p class="my-3 text-xl font-bold text-gray-400">
+      Projects
+    </p>
+
+    <div class="project bg-gray-700 rounded-lg p-4 my-4">
+      <a href="https://flowery.pw">
+        <h2 class="text-gray-400 font-bold">Flowery</h2> 
+      </a>
+      <p class="text-gray-400">Flowery is an online Text to Speech system that is free to use. You can interact with it through either the web UI or the Flowery API.</p>
+    </div>
+
+    <div class="project bg-gray-700 rounded-lg p-4 my-4">
+      <a href="https://songdata.org">
+        <h2 class="text-gray-400 font-bold">SongData (In Development)</h2> 
+      </a>
+      <p class="text-gray-400">SongData is an online database for music metadata. It bridges the gaps between music providers and provides easy access to data.</p>
+    </div>
+
+    <div class="mt-8">
+      <a href="https://www.last.fm/user/Ryan5453">
+      <h2 class="text-xl font-bold text-gray-400">
+        I'm currently listening to
+      </h2>
+
+      <div class="flex mt-4 pb-3">
+        <img id="albumArt" class="w-32 h-32 object-cover rounded-lg" src="assets/cd.svg" alt="Album Artwork">
+        <div class="ml-4 flex flex-col justify-center">
+          <div id="songTitle" class="mb-2 text-gray-400"></div>
+          <div id="songArtist" class="mb-2 text-gray-400"></div>
+          <div id="songAlbum" class="mb-2 text-gray-400"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Ryan5453&api_key=f3878d8bcb04561fe918bb6f22ba808f&format=json`)
+      .then(res => res.json())
+      .then(data => {
+        const track = data.recenttracks.track[0];
+        document.querySelector('#songTitle').textContent = "Song: " + track.name;
+        document.querySelector('#songArtist').textContent = "Artist: " + track.artist['#text'];
+        document.querySelector('#songAlbum').textContent = "Album: " + track.album['#text'];
+        var albumArt = track.image[3]['#text'];
+        if (!albumArt) {
+            albumArt = "assets/cd.svg";
+        }
+        document.querySelector('#albumArt').src = albumArt;
+      });
+  </script>
+
+</body>
+</html>
