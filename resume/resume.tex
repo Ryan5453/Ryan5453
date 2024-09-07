@@ -16,14 +16,6 @@
 
 \def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
 
-% DEFINITIONS FOR RESUME
-\newcommand{\area}[2]{
-    \vspace*{-9pt}
-    \begin{verse}
-        \textbf{#1}   #2
-    \end{verse}
-}
-
 \newcommand{\lineunder}{
     \vspace*{-8pt} \\
     \hspace*{-18pt} \hrulefill \\
@@ -32,36 +24,6 @@
 \newcommand{\header}[1]{
     {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
     \vspace*{-6pt} \lineunder
-}
-
-\newcommand{\employer}[3]{
-    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
-}
-
-\newcommand{\contact}[3]{
-    \vspace*{-10pt}
-    \begin{center}
-        {\Huge \scshape {#1}}\\
-        #2 \\ #3
-    \end{center}
-    \vspace*{-8pt}
-}
-
-\newenvironment{achievements}{
-    \begin{list}
-        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
-    \end{list}
-}
-
-\newcommand{\schoolwithcourses}[4]{
-    \textbf{#1} #2 $\bullet$ #3\\
-    #4 \\
-    \vspace*{5pt}
-}
-
-\newcommand{\school}[4]{
-    \textbf{#1} #2 $\bullet$ #3\\
-    #4 \\
 }
 
 \begin{document}
@@ -81,8 +43,9 @@
 \textbf{Northeastern University}\hfill Boston, MA\\
 Khoury College of Computer Sciences\\
 Candidate for Bachelor of Science in Computer Science \hfill September 2023 - Present\\
-Expected Graduation: June 2027\\
-GPA: 3.572/4.0\\
+GPA: 3.583/4.0 \hfill Expected Graduation: June 2027\\
+Awards: Dean's List (Spring 2024)\\
+Activities: Northestern Television\\
 Related Courses: Engineering LLM-integrated systems, Algorithms \& Data, Computer Systems\\
 \vspace{2mm}
 
@@ -102,15 +65,8 @@ Related Courses: Engineering LLM-integrated systems, Algorithms \& Data, Compute
 \textbf{Flowery} \hfill  \faicon{link} \href{https://flowery.pw}{flowery.pw}\\
 \textit{Python, Docker, Redis, React, TypeScript, Tailwind CSS, Rust} \hfill December 2022 - Present\\
 \begin{itemize} \itemsep 1pt
-    \item Developed a non-profit text-to-speech service allowing users to convert text to audio using a web UI or HTTP API
-    \item Implemented containerization using Docker for easy deployment and scalability
-\end{itemize}
-
-\textbf{SongData (In Progress) (remove?)}  \hfill \faicon{link} \href{https://songdata.org}{songdata.org}\\
-\textit{Python, Postgres} \hfill Febuary 2024 - Present\\
-\begin{itemize} \itemsep 1pt
-    \item Creating an online music metadata platform that aggregates data from various music streaming services
-    \item Designing a unified API for accessing comprehensive music data
+    \item Developed a text-to-speech service allowing users to convert text to audio using a web UI or HTTP API
+    \item Includes custom audio processing engine, caching layers, rate-limiting and inference solutions
 \end{itemize}
 
 \textbf{music2text (Research Project)} \hfill \faicon{github} \href{https://github.com/Ryan5453/music2text}{Ryan5453/music2text}\\
@@ -124,35 +80,28 @@ Related Courses: Engineering LLM-integrated systems, Algorithms \& Data, Compute
 %==== Experience Category ====%
 
 \header{Experience}
+
 \textbf{Northeastern University} \hfill Boston, MA\\
-\textit{Mechanical \& Industrial Engineering IT Support} \hfill September 2023 - Present\\
-\begin{itemize} \itemsep 1pt
+\textit{Mechanical \& Industrial Engineering IT Support} \hfill September 2023 - Present
+\begin{itemize}
     \item Provide 1:1 IT support to professors and graduate students, enhancing department productivity
     \item Perform hands-on hardware troubleshooting, repairs, and upgrades on various computing systems
     \item Leverage Windows Deployment Services (WDS) to efficiently manage and deploy Windows systems
-    \item Develop and implement an efficient workflow to print hundreds of large-format posters for MIE Capstone students
 \end{itemize}
 
 \textbf{Middleborough High School} \hfill Middleborough, MA\\
-\textit{AP Computer Science Principles Teaching Assistant} \hfill September 2022 - December 2022\\
-\begin{itemize} \itemsep 1pt
+\textit{AP Computer Science Principles Teaching Assistant} \hfill September 2022 - December 2022
+\begin{itemize}
     \item Provided 1:1 assistance to clarify course concepts and assist with assignments for 20+ students
-    \item Delivered constructive feedback on student work and offered guidance to improve understanding of key programming principles
+    \item Delivered constructive feedback on student work and offered guidance to improve understanding
 \end{itemize}
 
 \textbf{TJ Maxx} \hfill Plymouth, MA\\
-\textit{Sales Associate} \hfill May 2022 - September 2022\\
-\begin{itemize} \itemsep 1pt
-    \item Assisted with receiving and processing new merchandise shipments, improving inventory management efficiency
+\textit{Sales Associate} \hfill May 2022 - September 2022
+\begin{itemize}
+    \item Received and processed new merchandise shipments, improving inventory management efficiency
     \item Prepared and organized items for store floor display, enhancing customer shopping experience
 \end{itemize}
-
-%==== Awards Category ====%
-
-\header{Awards}
-\textbf{Dean's List} \hfill Northeastern University\\
-Maintained an average GPA of over 3.5 during the Spring 2024 semester \hfill May 2024\\
-\vspace{2mm}
 
 %==== Interests Category ====%
 
