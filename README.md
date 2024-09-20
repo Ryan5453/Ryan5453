@@ -1,4 +1,4 @@
 ## Hi, I'm Ryan 👋
 
-Most of my bigger projects are closed source, but I still love to contribute to open source projects and maintain some of my own. You can view my portfolio site at [ryan.science](https://ryan.science) to learn more about me and my other projects :)
+I'm a software engineer from Massachusetts. I love writing software in my free time and contributing to open source projects. All of my projects are open-source, other than [Flowery](https://flowery.pw).
 
