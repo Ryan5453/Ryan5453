@@ -48,12 +48,6 @@
       I'm Ryan, a software engineer from Massachusetts. I attend Northeastern University in Boston as a Computer Science major.
     </p>
 
-    <br>
-
-    <p class="text-gray-400">
-      I will be available for co-op opportunities from January - June 2025.
-    </p>
-
     <hr class="my-5 border-gray-700">
 
     <p class="my-3 text-xl font-bold text-gray-400">
@@ -96,9 +90,9 @@
       .then(res => res.json())
       .then(data => {
         const track = data.recenttracks.track[0];
-        document.querySelector('#songTitle').textContent = "Song: " + track.name;
-        document.querySelector('#songArtist').textContent = "Artist: " + track.artist['#text'];
-        document.querySelector('#songAlbum').textContent = "Album: " + track.album['#text'];
+        document.querySelector('#songTitle').innerHTML = "<strong>Song:</strong> " + track.name;
+        document.querySelector('#songArtist').innerHTML = "<strong>Artist:</strong> " + track.artist['#text'];
+        document.querySelector('#songAlbum').innerHTML = "<strong>Album:</strong> " + track.album['#text'];
         var albumArt = track.image[3]['#text'];
         if (!albumArt) {
             albumArt = "assets/cd.svg";
