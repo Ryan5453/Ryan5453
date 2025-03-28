@@ -193,11 +193,17 @@ const Portfolio: React.FC = () => {
           onClick={() => setShowPopup(false)}
         >
           <div 
-            className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500"
+            className="relative w-full max-w-md bg-white dark:bg-black/60 rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500"
             onClick={(e) => e.stopPropagation()}
           >
+            <div className="absolute inset-0 dark:block hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-950 via-rose-950 to-orange-950 opacity-80" />
+              <div className="absolute top-0 left-0 w-72 h-72 bg-rose-800 rounded-full blur-3xl opacity-30 -translate-x-1/3 -translate-y-1/3" />
+              <div className="absolute bottom-0 right-0 w-72 h-72 bg-amber-800 rounded-full blur-3xl opacity-30 translate-x-1/3 translate-y-1/3" />
+              <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-orange-800 rounded-full blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2" />
+            </div>
             <button 
-              className="absolute top-4 right-4 p-2 bg-orange-100 hover:bg-orange-200 text-orange-700 hover:text-orange-950 rounded-full transition-colors z-10"
+              className="absolute top-4 right-4 p-2 rounded-full z-10 shadow-lg border border-orange-200/10 dark:border-orange-800/30 bg-orange-200 hover:bg-orange-300 text-orange-800 hover:text-orange-950 dark:bg-gradient-to-br dark:from-orange-600 dark:to-amber-700 dark:hover:from-orange-500 dark:hover:to-amber-600 dark:text-white transition-all"
               onClick={() => setShowPopup(false)}
             >
               <X size={20} />
@@ -205,9 +211,9 @@ const Portfolio: React.FC = () => {
             <img 
               src={tessaImage}
               alt="Tessa"
-              className="w-full h-auto"
+              className="w-full h-auto relative z-0"
             />
-            <div className="p-6 bg-white dark:bg-black">
+            <div className="p-6 bg-white dark:bg-transparent relative z-0">
               <p className="text-center text-orange-900 dark:text-orange-100 text-xl font-medium">Meet Tessa, my adorable dog!</p>
             </div>
           </div>
