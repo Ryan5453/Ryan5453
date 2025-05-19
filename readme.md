@@ -1,0 +1,1 @@
+i do some closed source stuff too. check out [ryan.science](https://ryan.science).
