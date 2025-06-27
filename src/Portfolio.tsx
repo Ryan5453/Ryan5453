@@ -92,10 +92,14 @@ const Portfolio: React.FC = () => {
           <div className="mt-8 space-y-4">
             <div className="space-y-4">
               <p className="text-lg text-orange-900 dark:text-orange-100 leading-relaxed">
-                i currently work as a computational modeling engineer at montai therapeutics on co-op while pursuing my computer science degree at northeastern university.
+                i'm a software and infrastructure engineer currently pursuing my bachelor's in computer science at northeastern university.
+                i previously worked as a computational modeling engineer at montai therapeutics on co-op.
               </p>
               <p className="text-lg text-orange-900 dark:text-orange-100 leading-relaxed">
-                i'm passionate about building robust scalable infrastructure and exploring the fascinating field of machine learning, especially in areas like speech synthesis, automatic speech recognition, and large language models. i find the intersection of these interests particularly fascinating.
+                i'm passionate about building robust, scalable infrastructure and exploring the world of machine learning, especially in areas like speech synthesis, automatic speech recognition, and large language models. i find the intersection of these interests particularly fascinating.
+              </p>
+              <p className="text-lg text-orange-900 dark:text-orange-100 leading-relaxed">
+                i am looking for co-op opportunities from january 2026 to june 2026.
               </p>
             </div>
           </div>
