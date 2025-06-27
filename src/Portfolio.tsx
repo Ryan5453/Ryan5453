@@ -93,7 +93,7 @@ const Portfolio: React.FC = () => {
             <div className="space-y-4">
               <p className="text-lg text-orange-900 dark:text-orange-100 leading-relaxed">
                 i'm a software and infrastructure engineer currently pursuing my bachelor's in computer science at northeastern university.
-                i previously worked as a computational modeling engineer at montai therapeutics on co-op.
+                i previously worked as a computational modeling engineer at <a href="https://montai.com" className="no-underline hover:no-underline text-orange-900 dark:text-orange-100">montai therapeutics</a> on co-op.
               </p>
               <p className="text-lg text-orange-900 dark:text-orange-100 leading-relaxed">
                 i'm passionate about building robust, scalable infrastructure and exploring the world of machine learning, especially in areas like speech synthesis, automatic speech recognition, and large language models. i find the intersection of these interests particularly fascinating.
