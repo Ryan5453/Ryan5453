@@ -1,1 +1,1 @@
-i do some closed source stuff too. check out [ryan.science](https://ryan.science).
+hello! check out [ryan.science](https://ryan.science) for my closed source projects.
