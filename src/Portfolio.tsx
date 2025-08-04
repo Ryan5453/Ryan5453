@@ -124,7 +124,7 @@ const Portfolio: React.FC = () => {
                   <span className="text-sm text-orange-600 dark:text-orange-300 bg-orange-100/80 dark:bg-orange-900/80 px-3 py-1 rounded-full font-medium">Featured</span>
                 </div>
                 <p className="mt-3 text-orange-800 dark:text-orange-200 leading-relaxed">
-                  A free text-to-speech service that simplifies converting text to speech. Flowery connects you with multiple TTS providers, allowing you to access a variety of voices and engines from one convenient platform. With a clean web interface and developer-friendly API, it's built with a focus on simplicity and ease of use.
+                  A free text-to-speech service that simplifies converting text to speech. Flowery connects you with multiple TTS providers, allowing you to access a variety of voices and engines from one convenient platform. With a clean web interface and developer-friendly API, it's built with a focus on simplicity and ease of use. Processes 1M+ requests per month.
                 </p>
               </a>
             </div>
