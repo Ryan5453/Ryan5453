@@ -130,7 +130,7 @@ const Portfolio: React.FC = () => {
             </div>
 
             <div className="group bg-white/80 dark:bg-black/40 backdrop-blur-xl rounded-2xl p-6 border border-orange-100/50 dark:border-orange-900/50 shadow-xl shadow-orange-100/50 dark:shadow-orange-950/50 hover:shadow-2xl hover:shadow-orange-200/50 dark:hover:shadow-orange-900/50 transition-all duration-500 hover:-translate-y-1">
-              <a href="https://github.com/Ryan5453/SingingWhisper" className="block">
+              <a href="https://github.com/Ryan5453/LyricScribe" className="block">
                 <div className="flex justify-between items-start">
                   <div className="flex items-center gap-2">
                     <AudioLines size={20} className="text-orange-700 dark:text-orange-300" />
@@ -139,7 +139,7 @@ const Portfolio: React.FC = () => {
                   <span className="text-sm text-orange-600 dark:text-orange-300 bg-orange-100/80 dark:bg-orange-900/80 px-3 py-1 rounded-full font-medium">Research</span>
                 </div>
                 <p className="mt-3 text-orange-800 dark:text-orange-200 leading-relaxed">
-                  An ambitious research project exploring advanced techniques in music transcription. Combining state-of-the-art audio processing, machine learning models, and novel optimization approaches to transform how we convert music into text.
+                  A research project exploring advanced techniques in music transcription. Combining state-of-the-art audio processing, machine learning models, and novel optimization approaches to transform how we convert music into text.
                 </p>
               </a>
             </div>
