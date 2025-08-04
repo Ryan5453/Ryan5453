@@ -99,7 +99,7 @@ const Portfolio: React.FC = () => {
                 i'm passionate about building robust, scalable infrastructure and exploring the world of machine learning, especially in areas like speech synthesis, automatic speech recognition, and large language models. i find the intersection of these interests particularly fascinating.
               </p>
               <p className="text-lg text-orange-900 dark:text-orange-100 leading-relaxed">
-                i am looking for co-op opportunities from january 2026 to june 2026.
+                i am looking for co-op opportunities from january 2026 to august 2026.
               </p>
             </div>
           </div>
