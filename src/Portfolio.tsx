@@ -23,6 +23,7 @@ interface Track {
   artist: Artist;
   album: Album;
   image: TrackImage[];
+  url: string;
 }
 
 const Portfolio: React.FC = () => {
@@ -92,14 +93,14 @@ const Portfolio: React.FC = () => {
           <div className="mt-8 space-y-4">
             <div className="space-y-4">
               <p className="text-lg text-orange-900 dark:text-orange-100 leading-relaxed">
-                i'm a software and infrastructure engineer currently pursuing my bachelor's in computer science at northeastern university.
-                i previously worked as a computational modeling engineer at <a href="https://montai.com" className="no-underline hover:no-underline text-orange-900 dark:text-orange-100">montai therapeutics</a> on co-op.
+                I'm a software and infrastructure engineer currently pursuing my bachelor's in computer science at Northeastern University.
+                I previously worked as a computational modeling engineer at <a href="https://montai.com" className="no-underline hover:no-underline text-orange-900 dark:text-orange-100">Montai Therapeutics</a> on co-op.
               </p>
               <p className="text-lg text-orange-900 dark:text-orange-100 leading-relaxed">
-                i'm passionate about building robust, scalable infrastructure and exploring the world of machine learning, especially in areas like speech synthesis, automatic speech recognition, and large language models. i find the intersection of these interests particularly fascinating.
+                I'm passionate about building robust, scalable infrastructure and exploring the world of machine learning, especially in areas like speech synthesis, automatic speech recognition, and large language models. I find the intersection of these interests particularly fascinating.
               </p>
               <p className="text-lg text-orange-900 dark:text-orange-100 leading-relaxed">
-                i am looking for co-op opportunities from january 2026 to august 2026.
+                I am looking for co-op opportunities from January 2026 to August 2026.
               </p>
             </div>
           </div>
@@ -134,7 +135,7 @@ const Portfolio: React.FC = () => {
                 <div className="flex justify-between items-start">
                   <div className="flex items-center gap-2">
                     <AudioLines size={20} className="text-orange-700 dark:text-orange-300" />
-                    <h3 className="text-xl font-bold text-orange-950 dark:text-orange-50 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">SingingWhisper</h3>
+                    <h3 className="text-xl font-bold text-orange-950 dark:text-orange-50 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">LyricScribe</h3>
                   </div>
                   <span className="text-sm text-orange-600 dark:text-orange-300 bg-orange-100/80 dark:bg-orange-900/80 px-3 py-1 rounded-full font-medium">Research</span>
                 </div>
@@ -169,7 +170,7 @@ const Portfolio: React.FC = () => {
               What I'm Listening To
             </h2>
             {currentTrack && (
-              <a href="https://last.fm/user/Ryan5453" className="block group">
+              <a href={currentTrack.url} className="block group">
                 <div className="flex mt-4">
                   <div className="relative shrink-0">
                     <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-300 to-rose-300 dark:from-orange-700 dark:to-rose-700 blur-xl opacity-90 rounded-xl" />
