@@ -124,7 +124,7 @@ const Portfolio: React.FC = () => {
                     <img src={floweryLogo} alt="Flowery Logo" className="w-6 h-6" />
                     <h3 className="text-xl font-bold text-blue-950 dark:text-blue-50 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">Flowery</h3>
                   </div>
-                  <span className="text-sm text-blue-600 dark:text-blue-300 bg-blue-100/80 dark:bg-blue-900/80 px-3 py-1 rounded-full font-medium">Featured</span>
+                  <span className="text-sm text-blue-600 dark:text-blue-300 bg-blue-100/80 dark:bg-blue-900/80 px-3 py-1 rounded-full font-medium whitespace-nowrap">Featured</span>
                 </div>
                 <p className="mt-3 text-blue-800 dark:text-blue-200 leading-relaxed">
                   Free text-to-speech service that simplifies converting text to speech. It connects you with multiple TTS providers, allowing you to access a variety of voices and engines from one convenient platform. With a clean web interface and developer-friendly API, it's built with a focus on simplicity and ease of use. Processes 1M+ requests per month.
@@ -139,7 +139,7 @@ const Portfolio: React.FC = () => {
                     <Split size={20} className="text-blue-700 dark:text-blue-300" />
                     <h3 className="text-xl font-bold text-blue-950 dark:text-blue-50 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">demucs-inference</h3>
                   </div>
-                  <span className="text-sm text-blue-600 dark:text-blue-300 bg-blue-100/80 dark:bg-blue-900/80 px-3 py-1 rounded-full font-medium">Audio Processing</span>
+                  <span className="text-sm text-blue-600 dark:text-blue-300 bg-blue-100/80 dark:bg-blue-900/80 px-3 py-1 rounded-full font-medium whitespace-nowrap">Audio Processing</span>
                 </div>
                 <p className="mt-3 text-blue-800 dark:text-blue-200 leading-relaxed">
                   Modern fork of Demucs, a Python library for separating audio into isolated stems (vocals, drums, bass, and more). Brings support for Python 3.10+, latest PyTorch & TorchCodec versions, and UV for better dependency management and streamlined CUDA installation.
@@ -154,7 +154,7 @@ const Portfolio: React.FC = () => {
                     <Mic size={20} className="text-blue-700 dark:text-blue-300" />
                     <h3 className="text-xl font-bold text-blue-950 dark:text-blue-50 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">LyricScribe</h3>
                   </div>
-                  <span className="text-sm text-blue-600 dark:text-blue-300 bg-blue-100/80 dark:bg-blue-900/80 px-3 py-1 rounded-full font-medium">Research</span>
+                  <span className="text-sm text-blue-600 dark:text-blue-300 bg-blue-100/80 dark:bg-blue-900/80 px-3 py-1 rounded-full font-medium whitespace-nowrap">Research</span>
                 </div>
                 <p className="mt-3 text-blue-800 dark:text-blue-200 leading-relaxed">
                   Exploring accurate lyric transcription from music using ML pipelines. Evaluates and combines different vocal separation and speech recognition models to tackle the unique challenges and complexities of music transcription.
