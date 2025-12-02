@@ -120,13 +120,35 @@ const InsecureByDesign: React.FC = () => {
 
       <p>
         All of this sensitive personal information is stored in an unencrypted, easily parsable format.
-        With basic programming knowledge, anyone can decode these barcodes, modify the data, and generate a new barcode that will scan identically to a legitimate one.
+        With basic programming knowledge, anyone can decode these barcodes, modify the data, and generate a new barcode that will be parsed identically to a legitimate one.
+      </p>
+
+      <p>
+        According to AAMVA's 2023 financial statements<sup><a href="#ref7" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>7</a></sup>, the organization generated approximately $10-15 million annually from DLDV and other verification services, which represents roughly <b>20-30%</b> of their total operating revenue.
+        The vulnerability that makes fake IDs trivially easy to create also happens to be the AAMVA's second-largest revenue stream.
+      </p>
+
+      <p>
+        The clear solution to this problem is to implement digital signatures in the barcode data.
+        Digital signatures would allow any scanner to verify a barcode's authenticity instantly, without database queries, without per-transaction fees, and even without internet connectivity.
+      </p>
+
+      <p>
+        In fact, AAMVA already mandates this exact technology for their Mobile Driver's Licenses (mDLs) standard.
+        It explicitly requires that mDL data be transmitted "along with a cryptographic signature from the Issuer proving that the data have not been altered"<sup><a href="#ref8" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>8</a></sup>.
+      </p>
+
+      <p>
+        States such as New York and Virginia have implemented proprietary cryptographic security fields to their PDF417 barcodes.
+        Their barcodes are still fully compliant with the AAMVA standard as they store the data inside jurisdiction-specific fields.
+        However, these cryptographic security fields are not part of the AAMVA standard and are not publically documented.
+        To the majority of people, these fields are entirely useless as there is no way to validate them.
       </p>
 
       <p>
         The AAMVA does sell a solution to this vulnerability: the Driver's License Data Verification (DLDV) Service<sup><a href="#ref1" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>1</a></sup>.
         This service allows businesses to submit data extracted from a DL/ID barcode and verify whether it matches the corresponding state DMV database records.
-        In theory, this would catch any fraudulent modifications to the barcode data.
+        In theory, this would catch <i>any</i> fraudulent modifications to barcode data.
       </p>
 
       <p>
@@ -144,12 +166,27 @@ const InsecureByDesign: React.FC = () => {
 
       <p>
         Using DLDV simply is not a cost-effective solution for most businesses.
-        TokenWorks' DMVCheck service is regarded as a "a second line of defense"<sup><a href="#ref4" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>4</a></sup> simply because it is a pay-per-use service and would easily cost their customers (which are primarily bars and liquor stores) thousands of dollars per month.
+        TokenWorks' DMVCheck service is regarded as a "a second line of defense"<sup><a href="#ref4" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>4</a></sup> simply because it is a pay-per-use service that would easily cost their customers (which are primarily bars and liquor stores) thousands of dollars per month to use for every scan.
       </p>
       <p>
         Rather than using DMVCheck for every single ID scan, TokenWorks opts to use IDSentry's Barcode Detective service.
         This service is much less accurate than using DLDV, but it allows for TokenWorks to advertise an "unlimited" amount of scans that can detect fraudulent IDs.
-        IDSentry can catch approximately 30% of fraudulent IDs from one of the most common ID vendors<sup><a href="#ref5" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>5</a></sup>, while DLDV can catch approximately 86% of fraudulent IDs<sup><a href="#ref6" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>6</a></sup>, a significant difference.
+        IDSentry can catch approximately 30% of fraudulent IDs from one of the most common ID vendors<sup><a href="#ref5" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>5</a></sup>, while DLDV can catch approximately 86% of fraudulent IDs<sup><a href="#ref6" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>6</a></sup>, a very significant difference.
+      </p>
+
+      <p>
+        The entire verification industry's existence proves the market demand for secure ID validation.
+        But it shouldn't require a $2-per-scan service to verify what cryptographic signatures could prove instantly and at no marginal cost.
+      </p>
+
+      <p>
+        The AAMVA's issue is that if they mandaded signed/secure barcodes, like they already do for mDLs, their entire DLDV business model would evaporate.
+        Scanners would be able to verify authenticity mathematically, allowing for no per-scan fees and offline validation.
+      </p>
+
+      <p>
+        The question isn't whether AAMVA <i>can</i> mandate secure barcodes.
+        It's whether they <i>will</i>, and what it would take to make security more profitable than vulnerability.
       </p>
 
       <div className="mt-2 pt-2 border-t-2 border-blue-200 dark:border-blue-800">
@@ -230,6 +267,54 @@ const InsecureByDesign: React.FC = () => {
               className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
             >
               https://www.aamva.org/it-systems-participation-map?id=594
+            </a>
+          </li>
+
+          <li id="ref7" className="leading-relaxed">
+            AAMVA. (2024). <i>Consolidated Financial Statements, Supplementary Information, and Reports Required in Accordance with the Uniform Guidance: Years Ended September 30, 2023 and 2022</i>. American Association of Motor Vehicle Administrators.{' '}
+            <a
+              href="https://www.aamva.org/about/association-information/financial-information/aamva-financial-documents"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+            >
+              https://www.aamva.org/about/association-information/financial-information/aamva-financial-documents
+            </a>
+          </li>
+
+          <li id="ref8" className="leading-relaxed">
+            AAMVA. (2024). <i>Mobile Driver's License (mDL) Frequently Asked Questions for Law Enforcement</i>. American Association of Motor Vehicle Administrators.{' '}
+            <a
+              href="https://www.aamva.org/getmedia/6c37bda5-e43d-493e-8294-bba0d18aa2f9/mDL-FAQ-for-LE-01242024.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+            >
+              https://www.aamva.org/getmedia/6c37bda5-e43d-493e-8294-bba0d18aa2f9/mDL-FAQ-for-LE-01242024.pdf
+            </a>
+          </li>
+
+          <li id="ref9" className="leading-relaxed">
+            New York State. (n.d.). <i>15 NYCRR § 32.10 - Encrypted two-dimensional (2D) bar code security feature</i>. Cornell Law School Legal Information Institute.{' '}
+            <a
+              href="https://www.law.cornell.edu/regulations/new-york/15-NYCRR-32.10"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+            >
+              https://www.law.cornell.edu/regulations/new-york/15-NYCRR-32.10
+            </a>
+          </li>
+
+          <li id="ref10" className="leading-relaxed">
+            Fake ID Solutions. (2025). <i>PDF417 Drivers License Barcode Generator</i>.{' '}
+            <a
+              href="https://barcodes.fakeidsolutions.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+            >
+              https://barcodes.fakeidsolutions.com/
             </a>
           </li>
         </ol>
