@@ -10,13 +10,13 @@ const InsecureByDesign: React.FC = () => {
     >
       <p>
         Fake IDs have become increasingly prevalent across the United States, particularly on college campuses.
-        The ease of acquisition has grown dramatically in recent years; fraudulent IDs can now be purchased openly on the clearnet and paid using credit cards.
+        The ease of acquisition has grown dramatically in recent years; fraudulent IDs can now be purchased openly on the open internet and paid for using credit cards.
         This accessibility has spawned an entire verification industry, with companies like <a href="https://www.intellicheck.com" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-colors">IntelliCheck</a>, <a href="https://www.idsentry.com" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-colors">IDSentry</a>, and <a href="https://www.idscan.net" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-colors">VeriScan</a> offering specialized detection services.
       </p>
 
       <p>
         The American Association of Motor Vehicle Administrators (AAMVA) is the non-profit trade association responsible for establishing driver's license standards throughout the United States.
-        All fifty U.S. states issue licenses that comply with AAMVA standards, making the organization's security decisions critically important.
+        All fifty U.S. states and Canadian provinces issue driver's licenses that comply with AAMVA standards, making the organization's security decisions critically important.
       </p>
 
       <p>
@@ -124,7 +124,7 @@ const InsecureByDesign: React.FC = () => {
       </p>
 
       <p>
-        The AAMVA does offer a solution to this vulnerability: the Driver's License Data Verification (DLDV) Service<sup><a href="#ref1" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>1</a></sup>.
+        The AAMVA does sell a solution to this vulnerability: the Driver's License Data Verification (DLDV) Service<sup><a href="#ref1" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>1</a></sup>.
         This service allows businesses to submit data extracted from a DL/ID barcode and verify whether it matches the corresponding state DMV database records.
         In theory, this would catch any fraudulent modifications to the barcode data.
       </p>
@@ -138,21 +138,29 @@ const InsecureByDesign: React.FC = () => {
       <p>
         Even if you <i>do</i> manage to get approved, DLDV is not a cost-effective solution.
         The pricing for DLDV is not publicly disclosed, but two providers (considered "Gateway Partners" by the AAMVA) publish their own pricing.
-        TokenWorks, a hardware vendor for ID scanning, charges $1.25 - $2 per scan for their DMVCheck service, depending how many scans you need.
-        Dealertrack, a major dealership software platform, charges $4 per lookup with DLDV.
+        TokenWorks, a hardware vendor for ID scanning, charges $1.25 - $2 per scan<sup><a href="#ref2" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>2</a></sup> for their DMVCheck service, depending how many scans you need.
+        Dealertrack, a major dealership software platform, charges $4 per lookup with DLDV<sup><a href="#ref3" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>3</a></sup>.
       </p>
 
       <p>
         Using DLDV simply is not a cost-effective solution for most businesses.
-        TokenWorks' DMVCheck service is regarded as a "a second line of defense" simply because it is a pay-per-use service and would easily cost their customers (which are primarily bars and liquor stores) thousands of dollars per month.
+        TokenWorks' DMVCheck service is regarded as a "a second line of defense"<sup><a href="#ref4" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>4</a></sup> simply because it is a pay-per-use service and would easily cost their customers (which are primarily bars and liquor stores) thousands of dollars per month.
       </p>
       <p>
         Rather than using DMVCheck for every single ID scan, TokenWorks opts to use IDSentry's Barcode Detective service.
+        This service is much less accurate than using DLDV, but it allows for TokenWorks to advertise an "unlimited" amount of scans that can detect fraudulent IDs.
+        IDSentry can catch approximately 30% of fraudulent IDs from one of the most common ID vendors<sup><a href="#ref5" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>5</a></sup>, while DLDV can catch approximately 86% of fraudulent IDs<sup><a href="#ref6" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>6</a></sup>, a significant difference.
       </p>
 
       <div className="mt-2 pt-2 border-t-2 border-blue-200 dark:border-blue-800">
         <h2 className="text-2xl font-bold text-blue-950 dark:text-blue-50 mb-4">References</h2>
         <ol className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+          {/* 
+            Uses APA citation style (7th edition)
+            Format: Author. (Date). Title in italics. Publisher Name. URL
+            Example: AAMVA. (n.d.). Driver's License Data Verification (DLDV). American Association of Motor Vehicle Administrators. https://www.aamva.org/...
+          */}
+
           <li id="ref1" className="leading-relaxed">
             AAMVA. (n.d.). <i>Driver's License Data Verification (DLDV)</i>. American Association of Motor Vehicle Administrators.{' '}
             <a
@@ -162,6 +170,66 @@ const InsecureByDesign: React.FC = () => {
               className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
             >
               https://www.aamva.org/technology/systems/verification-systems/dldv
+            </a>
+          </li>
+
+          <li id="ref2" className="leading-relaxed">
+            TokenWorks. (n.d.). <i>Transactions</i>. [Login required].{' '}
+            <a
+              href="https://account.tokenworks.net/Transactions/Transactions"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+            >
+              https://account.tokenworks.net/Transactions/Transactions
+            </a>
+          </li>
+
+          <li id="ref3" className="leading-relaxed">
+            Dealertrack. (2025, January). <i>Virginia Registration & Title Driver License Data Verification (DLDV) FAQs</i>.{' '}
+            <a
+              href="https://us.dealertrack.com/wp-content/uploads/sites/2/2025/01/Virginia-DLDV-FAQs.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+            >
+              https://us.dealertrack.com/wp-content/uploads/sites/2/2025/01/Virginia-DLDV-FAQs.pdf
+            </a>
+          </li>
+
+          <li id="ref4" className="leading-relaxed">
+            IDScanner. (2025, February 20). <i>Introducing DMVCheck: Enhanced ID verification technology for IdentiFake systems</i>.{' '}
+            <a
+              href="https://www.idscanner.com/drivers-license-news/introducing-dmvcheck-enhanced-id-verification-technology-for-identifake-systems/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+            >
+              https://www.idscanner.com/drivers-license-news/introducing-dmvcheck-enhanced-id-verification-technology-for-identifake-systems/
+            </a>
+          </li>
+
+          <li id="ref5" className="leading-relaxed">
+            IDScanning. (n.d.). <i>UN Scanning Database</i>.{' '}
+            <a
+              href="https://idscanning.pages.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+            >
+              https://idscanning.pages.dev/
+            </a>
+          </li>
+
+          <li id="ref6" className="leading-relaxed">
+            AAMVA. (n.d.). <i>IT Systems Participation Map</i>. American Association of Motor Vehicle Administrators.{' '}
+            <a
+              href="https://www.aamva.org/it-systems-participation-map?id=594"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+            >
+              https://www.aamva.org/it-systems-participation-map?id=594
             </a>
           </li>
         </ol>
