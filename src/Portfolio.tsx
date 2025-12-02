@@ -67,7 +67,7 @@ const Portfolio: React.FC = () => {
         <div className="relative bg-white/80 dark:bg-black/40 backdrop-blur-xl rounded-2xl p-8 border border-blue-100/50 dark:border-blue-900/50 shadow-xl shadow-blue-100/50 dark:shadow-blue-950/50 hover:shadow-2xl hover:shadow-blue-200/50 dark:hover:shadow-blue-900/50 transition-all duration-500">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <h1 
+              <h1
                 className="text-3xl sm:text-4xl font-bold text-blue-950 dark:text-blue-50 relative cursor-pointer w-fit"
                 onClick={() => setShowPopup(true)}
               >
@@ -94,15 +94,15 @@ const Portfolio: React.FC = () => {
             <div className="space-y-4">
               <p className="text-lg text-blue-900 dark:text-blue-100 leading-relaxed">
                 I'm a software and infrastructure engineer currently pursuing my bachelor's in computer science at Northeastern University.
-                I previously worked as a computational modeling engineer at <a href="https://montai.com" className="no-underline hover:no-underline text-blue-900 dark:text-blue-100">Montai Therapeutics</a> on co-op.
+                I previously worked as an MLOps & Infrastructure Engineer at <a href="https://montai.com" className="no-underline hover:no-underline text-blue-900 dark:text-blue-100">Montai Therapeutics</a> on co-op.
               </p>
               <p className="text-lg text-blue-900 dark:text-blue-100 leading-relaxed">
-                I'm passionate about building robust, scalable infrastructure and exploring the world of machine learning, especially in areas like speech synthesis, automatic speech recognition, and large language models. 
+                I'm passionate about building robust, scalable infrastructure and exploring the world of machine learning, especially in areas like speech synthesis, automatic speech recognition, and large language models.
                 I find the intersection of these interests particularly fascinating.
                 I have a <a href="/blog" className="no-underline hover:no-underline text-blue-900 dark:text-blue-100 font-bold"> blog </a> where I write about things that interest me.
               </p>
               <p className="text-lg text-blue-900 dark:text-blue-100 leading-relaxed">
-                I am looking for co-op opportunities from January 2026 to August 2026.
+                I am looking for co-op opportunities from January 2026 to August 2026. I have a resume available <a href="/resume" className="no-underline hover:no-underline text-blue-900 dark:text-blue-100 font-bold">here</a>.
               </p>
             </div>
           </div>
@@ -115,7 +115,7 @@ const Portfolio: React.FC = () => {
               Projects
             </span>
           </h2>
-          
+
           <div className="space-y-6">
             <div className="group bg-white/80 dark:bg-black/40 backdrop-blur-xl rounded-2xl p-6 border border-blue-100/50 dark:border-blue-900/50 shadow-xl shadow-blue-100/50 dark:shadow-blue-950/50 hover:shadow-2xl hover:shadow-blue-200/50 dark:hover:shadow-blue-900/50 transition-all duration-500 hover:-translate-y-1">
               <a href="https://flowery.pw" className="block">
@@ -176,7 +176,7 @@ const Portfolio: React.FC = () => {
                 <div className="flex mt-4">
                   <div className="relative shrink-0">
                     <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-300 to-sky-300 dark:from-blue-700 dark:to-sky-700 blur-xl opacity-90 rounded-xl" />
-                    <img 
+                    <img
                       src={currentTrack.image[3]['#text'] || "/api/placeholder/128/128"}
                       alt="Album Art"
                       className="w-24 h-24 rounded-xl object-cover relative"
@@ -195,21 +195,21 @@ const Portfolio: React.FC = () => {
       </div>
 
       {showPopup && imageLoaded && (
-        <div 
+        <div
           className="fixed inset-0 flex items-center justify-center z-50 bg-black/70 backdrop-blur-sm p-4 animate-in fade-in duration-200"
           onClick={() => setShowPopup(false)}
         >
-          <div 
+          <div
             className="relative w-full max-w-md bg-white/80 dark:bg-black/40 backdrop-blur-xl rounded-2xl border border-blue-100/50 dark:border-blue-900/50 overflow-hidden transform transition-all duration-300 animate-in zoom-in-95"
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
+            <button
               className="absolute top-4 right-4 p-2 rounded-full z-10 bg-white/90 dark:bg-black/60 border border-blue-100 dark:border-blue-900 text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 hover:bg-white dark:hover:bg-black/80 transition-all shadow-lg hover:scale-110"
               onClick={() => setShowPopup(false)}
             >
               <X size={20} />
             </button>
-            <img 
+            <img
               src={tessaImage}
               alt="Tessa"
               className="w-full h-auto rounded-t-2xl"
