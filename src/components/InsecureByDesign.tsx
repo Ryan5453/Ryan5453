@@ -143,7 +143,7 @@ const InsecureByDesign: React.FC = () => {
       <p>
         The AAMVA does sell a solution to this vulnerability: the Driver's License Data Verification (DLDV) Service<sup><a href="#ref2" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>2</a></sup>.
         This service allows businesses to submit data extracted from a DL/ID barcode and verify whether it matches the corresponding state DMV database records.
-        In theory, this would catch <i>any</i> fraudulent modifications to barcode data.
+        In theory, this would catch <i>any</i> fraudulent modifications to barcode data for the states that support it.
       </p>
 
       <p>
@@ -170,8 +170,8 @@ const InsecureByDesign: React.FC = () => {
       </p>
 
       <p>
-        According to AAMVA's financial statements, the organization generated approximately $10-15 million annually from DLDV and other verification services<sup><a href="#note1" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>*</a></sup>, which represents roughly <b>20-30%</b> of their total operating revenue.
-        The vulnerability that makes fake IDs trivially easy to create also happens to be the AAMVA's second-largest revenue stream.
+        According to AAMVA's financial statements, the organization generated approximately $5-13 million annually from DLDV<sup><a href="#note1" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>*</a></sup>, which represents roughly <b>10-25%</b> of their total operating revenue.
+        The exact figure is hidden through bundled reporting and strict NDAs around pricing, but the vulnerability that makes fake IDs trivially easy to create appears to be one of AAMVA's largest revenue streams.
       </p>
 
       <hr></hr>
@@ -302,8 +302,8 @@ const InsecureByDesign: React.FC = () => {
 
       <p className="mb-4 leading-relaxed">
         Applying the same signatures to PDF417 barcodes would require minimal additional effort: states could use their existing mDL signing keys
-        (or generate new ones for physical IDs under the same IACA), AAMVA extends the VICAL to include physical credential keys, and the Card Design Standard changes one
-        word. "<b>MAY</b> include a digital signature" becomes "<b>SHALL</b> include a digital signature."
+        (or generate new ones for physical IDs under the same IACA) and the AAMVA extends the VICAL to include those physical credential keys.
+        The Card Design Standard should be updated to enforce the requirement of a specific implementation of digital signatures.
       </p>
 
 
@@ -376,9 +376,8 @@ const InsecureByDesign: React.FC = () => {
       </div>
 
       <p className="mb-4 leading-relaxed">
-        There are no technical barriers to enabling secure barcodes.
-        The PKI infrastructure is already being build anyway for mDL.
-        What's missing is the mandate, and the willingness to forgo $10-15 million in annual verification revenue.
+        There are no technical barriers to enabling secure barcodes as the PKI infrastructure is already being built anyway for mDL.
+        What's missing is the mandate, and the willingness to forgo an estimated $5-13 million in annual DLDV revenue.
       </p>
 
       <p>
@@ -400,8 +399,12 @@ const InsecureByDesign: React.FC = () => {
         <h2 className="text-2xl font-bold text-blue-950 dark:text-blue-50 mb-4">Notes</h2>
         <div className="text-sm text-gray-700 dark:text-gray-300">
           <p id="note1" className="mb-4">
-            <sup className="font-semibold">*</sup> <span className="font-semibold">Revenue Calculation:</span>
-            TODO
+            <sup className="font-semibold">*</sup> <span className="font-semibold">Revenue Estimate:</span>{' '}
+            AAMVA does not disclose DLDV-specific revenue. Their Form 990 filings show $42M in program services revenue (FY2023), but bundle all verification systems together.<sup><a href="#ref8" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>8</a></sup>{' '}
+            The NMVTIS Annual Report shows that system generated $9.6M,<sup><a href="#ref9" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>9</a></sup>{' '}
+            leaving ~$32M for DLDV, CDLIS, S2S, and smaller programs.
+            DLDV is the only one that operates as a commercial fee-per-query service without federal funding.
+            There is still a level of uncertainty about DLDV's share of that revenue.
           </p>
         </div>
       </div>
@@ -496,6 +499,30 @@ const InsecureByDesign: React.FC = () => {
               className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
             >
               https://www.aamva.org/it-systems-participation-map?id=594
+            </a>
+          </li>
+
+          <li id="ref8" className="leading-relaxed">
+            ProPublica. (n.d.). <i>American Association of Motor Vehicle Administrators - Nonprofit Explorer</i>.{' '}
+            <a
+              href="https://projects.propublica.org/nonprofits/organizations/530172317"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+            >
+              https://projects.propublica.org/nonprofits/organizations/530172317
+            </a>
+          </li>
+
+          <li id="ref9" className="leading-relaxed">
+            AAMVA. (2023). <i>NMVTIS FY2023 Annual Report</i>. American Association of Motor Vehicle Administrators.{' '}
+            <a
+              href="https://www.aamva.org/getmedia/71c7a1a1-7692-48e1-9138-b71c702f2988/NMVTIS-FY2023-Annual-Report.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+            >
+              https://www.aamva.org/getmedia/71c7a1a1-7692-48e1-9138-b71c702f2988/NMVTIS-FY2023-Annual-Report.pdf
             </a>
           </li>
         </ol>
