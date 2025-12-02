@@ -9,8 +9,8 @@ const InsecureByDesign: React.FC = () => {
       date="2025-12-02"
     >
       <p>
-        Fake IDs have become increasingly prevalent across the United States, particularly on college campuses.
-        The ease of acquisition has grown dramatically in recent years; fraudulent IDs can now be purchased openly on the open internet and paid for using credit cards.
+        Fraudulent IDs have become increasingly prevalent across the United States, particularly on college campuses.
+        The ease of acquisition has grown dramatically in recent years, they can now be purchased openly on the open internet and paid for using credit cards.
         This accessibility has spawned an entire verification industry, with companies like <a href="https://www.intellicheck.com" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-colors">IntelliCheck</a>, <a href="https://www.idsentry.com" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-colors">IDSentry</a>, and <a href="https://www.idscan.net" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-colors">VeriScan</a> offering specialized detection services.
       </p>
 
@@ -20,7 +20,7 @@ const InsecureByDesign: React.FC = () => {
       </p>
 
       <p>
-        The fundamental problem is that the AAMVA's barcode standards are insecure by design, and the AAMVA has no incentives to fix this.
+        The fundamental problem is that the AAMVA's barcode standard is insecure by design, and the AAMVA has financial incentives to keep it that way.
       </p>
 
       <hr />
@@ -170,15 +170,15 @@ const InsecureByDesign: React.FC = () => {
       </p>
 
       <p>
-        According to AAMVA's financial statements, the organization generated approximately $5-13 million annually from DLDV<sup><a href="#note1" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>*</a></sup>, which represents roughly <b>10-25%</b> of their total operating revenue.
-        The exact figure is hidden through bundled reporting and strict NDAs around pricing, but the vulnerability that makes fake IDs trivially easy to create appears to be one of AAMVA's largest revenue streams.
+        The cost to businesses adds up quickly: a busy bar scanning 200 IDs per night at $2 per verification would pay over $140,000 annually for protection that cryptographic signatures could provide for free.
+        AAMVA does not disclose DLDV-specific revenue, but estimates suggest the service generates $5-13 million annually<sup><a href="#note1" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>*</a></sup>, a substantial portion of their operating budget.
       </p>
 
       <hr></hr>
 
       <p>
         If the AAMVA implemented digital signatures in barcodes, the core data would still remain plaintext allowing for any scanner to read it.
-        However, the signature would be a cryptographic proof that the data originated from a legitimate DMV and hasn't been modified.
+        However, the signature would contain cryptographic proof that the data originated from a legitimate DMV and hasn't been modified.
         Forgers can copy the visible information, but they cannot forge the signature without the DMV's private key.
       </p>
 
@@ -383,6 +383,13 @@ const InsecureByDesign: React.FC = () => {
       <p>
         The entire verification industry's existence proves the market demand for secure ID validation.
         But it shouldn't require a $2-per-scan service to verify what cryptographic signatures could prove instantly and at no marginal cost.
+      </p>
+
+      <p>
+        I don't expect mDLs to fully replace physical IDs any time soon.
+        Rollouts over the past few years has been incredibly slow, and I expect most Americans to continue carrying physical licenses for years, if not decades.
+        Companies like IntelliCheck and IDSentry provide genuine value in the current landscape.
+        But their entire market exists because of a policy choice, not a technical limitation.
       </p>
 
       <p>
