@@ -124,8 +124,38 @@ const InsecureByDesign: React.FC = () => {
       </p>
 
       <p>
+        Here's what the raw barcode data actually looks like when decoded:
+      </p>
+
+      <pre className="my-6 bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm font-mono">
+        {`@
+ANSI 636000100202DL00410422ZV04630096DL
+DCS REYES
+DAC RICHARD
+DAD BENJAMIN
+DBB 01051987
+DBA 01052031
+DAG 5235 JOHN TYLER HWY
+DAI WILLIAMSBURG
+DAJ VA
+DAQ T16700285
+...`}
+      </pre>
+
+      <p>
+        The format is straightforward: a header containing the AAMVA version (10) and jurisdiction version (02), followed by three-letter field codes and their values.
+        Anyone with a PDF417 encoder library can generate a barcode that scanners will parse identically to a legitimate one.
+      </p>
+
+      <p>
         The clear solution to this problem is to implement digital signatures in the barcode data.
         Digital signatures would allow any scanner to verify a barcode's authenticity instantly, without database queries, without per-transaction fees, and even without internet connectivity.
+      </p>
+
+      <p>
+        Digital signatures work through asymmetric cryptography: the DMV signs the barcode data using a private key that only they possess, producing a signature that can then be embedded in the barcode data as another three-letter field code.
+        Anyone can then verify that signature using the DMV's public key, which can be freely distributed.
+        The math ensures that producing a valid signature without the private key is computationally infeasible, so forgers cannot create a matching signature even if they can read and copy all the other data.
       </p>
 
       <p>
