@@ -1,5 +1,6 @@
 import React from 'react';
 import BlogPost from './BlogPost';
+import vaDlBack from '../assets/va-dl-back.png';
 
 const InsecureByDesign: React.FC = () => {
   return (
@@ -37,7 +38,7 @@ const InsecureByDesign: React.FC = () => {
       </p>
 
       <p>
-        <img src="/src/assets/va-dl-back.png" alt="Virginia driver's license back" className="w-full max-w-md mx-auto rounded-lg shadow-lg mb-4" />
+        <img src={vaDlBack} alt="Virginia driver's license back" className="w-full max-w-md mx-auto rounded-lg shadow-lg mb-4" />
 
         The decoded data from this Virginia license includes:
       </p>
