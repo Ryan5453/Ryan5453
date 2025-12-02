@@ -14,7 +14,7 @@ const Blog: React.FC = () => {
     {
       url: 'insecure-by-design',
       title: 'Insecure by Design',
-      date: '2025-12-2',
+      date: '2025-12-02',
       description: 'The AAMVA\'s driver\'s license barcode standard is insecure by design and generates ~$10M annually in \'solutions\'.',
     },
   ];
@@ -66,7 +66,7 @@ const Blog: React.FC = () => {
                   <div className="flex items-center gap-2 mt-2 text-sm text-blue-700 dark:text-blue-300">
                     <Calendar size={16} />
                     <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString('en-US', {
+                      {new Date(`${post.date}T12:00:00`).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric',

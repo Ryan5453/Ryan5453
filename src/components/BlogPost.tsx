@@ -34,7 +34,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ title, date, children }) => {
           <div className="flex items-center gap-2 text-sm text-blue-700 dark:text-blue-300 mb-8 pb-8 border-b border-blue-200 dark:border-blue-800">
             <Calendar size={16} />
             <time dateTime={date}>
-              {new Date(date).toLocaleDateString('en-US', {
+              {new Date(`${date}T12:00:00`).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
