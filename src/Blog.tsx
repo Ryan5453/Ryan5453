@@ -14,7 +14,7 @@ const Blog: React.FC = () => {
     {
       url: 'insecure-by-design',
       title: 'Insecure by Design',
-      date: '2025-12-1',
+      date: '2025-12-2',
       description: 'The AAMVA\'s driver\'s license barcode standard is insecure by design and generates ~$10M annually in \'solutions\'.',
     },
   ];

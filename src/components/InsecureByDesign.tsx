@@ -6,7 +6,7 @@ const InsecureByDesign: React.FC = () => {
   return (
     <BlogPost
       title="Insecure by Design"
-      date="2025-11-30"
+      date="2025-12-02"
     >
       <p>
         Fake IDs have become increasingly prevalent across the United States, particularly on college campuses.
