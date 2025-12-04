@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Music, Github, Linkedin, Twitter, Split, X, Mic } from 'lucide-react';
+import { Mail, Music, Github, Linkedin, Twitter, Split, X, Mic, Key } from 'lucide-react';
 import floweryLogo from './assets/flowery.svg';
 import tessaImage from './assets/tessa.png';
 
@@ -74,17 +74,20 @@ const Portfolio: React.FC = () => {
                 Ryan Fahey
               </h1>
               <div className="flex items-center space-x-4">
-                <a href="https://github.com/Ryan5453" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-all transform hover:scale-110 hover:rotate-3">
+                <a href="https://github.com/Ryan5453" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-all transform hover:scale-110 hover:rotate-3" title="GitHub">
                   <Github size={20} />
                 </a>
-                <a href="https://twitter.com/Ryan5453" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-all transform hover:scale-110 hover:rotate-3">
+                <a href="https://twitter.com/Ryan5453" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-all transform hover:scale-110 hover:rotate-3" title="Twitter">
                   <Twitter size={20} />
                 </a>
-                <a href="https://linkedin.com/in/Ryan5453" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-all transform hover:scale-110 hover:rotate-3">
+                <a href="https://linkedin.com/in/Ryan5453" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-all transform hover:scale-110 hover:rotate-3" title="LinkedIn">
                   <Linkedin size={20} />
                 </a>
-                <a href="mailto:ryan@ryan.science" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-all transform hover:scale-110 hover:rotate-3">
+                <a href="mailto:ryan@ryan.science" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-all transform hover:scale-110 hover:rotate-3" title="Email">
                   <Mail size={20} />
+                </a>
+                <a href="https://github.com/Ryan5453.gpg" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-all transform hover:scale-110 hover:rotate-3" title="GPG Key">
+                  <Key size={20} />
                 </a>
               </div>
             </div>
@@ -102,7 +105,7 @@ const Portfolio: React.FC = () => {
                 I have a <a href="/blog" className="no-underline hover:no-underline text-blue-900 dark:text-blue-100 font-bold"> blog </a> where I write about things that interest me.
               </p>
               <p className="text-lg text-blue-900 dark:text-blue-100 leading-relaxed">
-                I am looking for co-op opportunities from January 2026 to August 2026. I have a resume available <a href="/resume" className="no-underline hover:no-underline text-blue-900 dark:text-blue-100 font-bold">here</a>.
+                I am looking for co-op opportunities from January 2026 to August 2026.
               </p>
             </div>
           </div>
