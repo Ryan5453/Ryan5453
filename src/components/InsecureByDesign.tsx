@@ -201,7 +201,7 @@ DAQ T16700285
 
       <p>
         The cost to businesses adds up quickly: a busy bar scanning 200 IDs per night at $2 per verification would pay over $140,000 annually for protection that cryptographic signatures could provide for free.
-        AAMVA does not disclose DLDV-specific revenue, but estimates suggest the service generates $5-13 million annually<sup><a href="#note1" className="underline">*</a></sup>, a substantial portion of their operating budget.
+        AAMVA does not disclose DLDV-specific revenue, but estimates suggest the service generates $5-15 million annually<sup><a href="#note1" className="underline">*</a></sup>, a substantial portion of their operating budget.
       </p>
 
       <hr></hr>
@@ -407,7 +407,7 @@ DAQ T16700285
 
       <p className="mb-4 leading-relaxed">
         There are no technical barriers to enabling secure barcodes as the PKI infrastructure is already being built anyway for mDL.
-        What's missing is the mandate, and the willingness to forgo an estimated $5-13 million in annual DLDV revenue.
+        What's missing is the mandate, and the willingness to forgo an estimated $5-15 million in annual DLDV revenue.
       </p>
 
       <p>
