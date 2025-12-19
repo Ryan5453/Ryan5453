@@ -133,7 +133,7 @@ const Portfolio: React.FC = () => {
                 </div>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#57534e' }}>
-                Modern fork of Demucs, a Python library for separating audio into isolated stems (vocals, drums, bass, and more). Brings support for Python 3.10+, latest PyTorch & TorchCodec versions, and UV for better dependency management and streamlined CUDA installation.
+                Modern fork of Demucs for separating audio into isolated stems (vocals, drums, bass, and more). Includes a web app that runs models fully in-browser with WebGPU support. The Python library features a redesigned API for ease of use, support for Python 3.10+, latest PyTorch/TorchCodec versions, and UV for streamlined dependency management.
               </p>
             </div>
 
@@ -144,6 +144,7 @@ const Portfolio: React.FC = () => {
                   <h3 className="font-bold" style={{ color: '#1c1917' }}>LyricScribe</h3>
                 </div>
                 <div className="flex items-center gap-3">
+                  <span className="text-xs px-2 py-0.5 rounded" style={{ backgroundColor: '#f5f5f4', color: '#78716c' }}>Paused</span>
                   <a href="https://github.com/Ryan5453/LyricScribe" className="hover:opacity-60 transition-opacity flex items-center gap-1 text-sm" style={{ color: '#57534e' }} title="GitHub">
                     <Github size={14} />
                     <span>GitHub</span>
@@ -151,7 +152,7 @@ const Portfolio: React.FC = () => {
                 </div>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#57534e' }}>
-                Exploring accurate lyric transcription from music using ML pipelines. Evaluates and combines different vocal separation and speech recognition models to tackle the unique challenges and complexities of music transcription.
+                Research project investigating accurate lyric transcription from music using ML pipelines. Evaluates and combines different vocal separation and speech recognition models to tackle the unique challenges and complexities of music transcription.
               </p>
             </div>
           </div>
