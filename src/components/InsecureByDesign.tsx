@@ -11,7 +11,7 @@ const InsecureByDesign: React.FC = () => {
       <p>
         Fraudulent IDs have become increasingly prevalent across the United States, particularly on college campuses.
         The ease of acquisition has grown dramatically in recent years, they can now be purchased openly on the open internet and paid for using credit cards.
-        This accessibility has spawned an entire verification industry, with companies like <a href="https://www.intellicheck.com" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-colors">IntelliCheck</a>, <a href="https://www.idsentry.com" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-colors">IDSentry</a>, and <a href="https://www.idscan.net" className="text-blue-700 dark:text-blue-300 hover:text-blue-950 dark:hover:text-blue-100 transition-colors">VeriScan</a> offering specialized detection services.
+        This accessibility has spawned an entire verification industry, with companies like <a href="https://www.intellicheck.com" className="underline hover:no-underline">IntelliCheck</a>, <a href="https://www.idsentry.com" className="underline hover:no-underline">IDSentry</a>, and <a href="https://www.idscan.net" className="underline hover:no-underline">VeriScan</a> offering specialized detection services.
       </p>
 
       <p>
@@ -43,77 +43,77 @@ const InsecureByDesign: React.FC = () => {
         The decoded data from this Virginia license includes:
       </p>
 
-      <div className="my-6 bg-gray-50 dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+      <div className="my-6 rounded-lg p-6 border" style={{ backgroundColor: '#ffffff', borderColor: '#e7e5e4' }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DCS</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DCS</span>
             <span className="font-mono text-sm">REYES</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">Last Name</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>Last Name</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DAC</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DAC</span>
             <span className="font-mono text-sm">RICHARD</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">First Name</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>First Name</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DAD</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DAD</span>
             <span className="font-mono text-sm">BENJAMIN</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">Middle Name</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>Middle Name</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DBB</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DBB</span>
             <span className="font-mono text-sm">01051987</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">Date of Birth</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>Date of Birth</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DBA</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DBA</span>
             <span className="font-mono text-sm">01052031</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">Expiration</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>Expiration</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DBD</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DBD</span>
             <span className="font-mono text-sm">05062023</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">Issue Date</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>Issue Date</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DAG</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DAG</span>
             <span className="font-mono text-sm">5235 JOHN TYLER HWY</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">Address</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>Address</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DAI</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DAI</span>
             <span className="font-mono text-sm">WILLIAMSBURG</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">City</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>City</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DAJ</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DAJ</span>
             <span className="font-mono text-sm">VA</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">State</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>State</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DAK</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DAK</span>
             <span className="font-mono text-sm">231852553</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">Zip Code (XXXXX-XXXX format)</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>Zip Code (XXXXX-XXXX format)</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DAQ</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DAQ</span>
             <span className="font-mono text-sm">T16700285</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">License Number</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>License Number</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DBC</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DBC</span>
             <span className="font-mono text-sm">1</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">Sex (Male)</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>Sex (Male)</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DAU</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DAU</span>
             <span className="font-mono text-sm">072 IN</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">Height</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>Height</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-sm font-semibold text-blue-600 dark:text-blue-400">DAY</span>
+            <span className="font-mono text-sm font-semibold" style={{ color: '#1c1917' }}>DAY</span>
             <span className="font-mono text-sm">BRO</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">Eye Color</span>
+            <span className="text-xs" style={{ color: '#78716c' }}>Eye Color</span>
           </div>
         </div>
       </div>
@@ -160,7 +160,7 @@ DAQ T16700285
 
       <p>
         In fact, AAMVA already mandates this exact technology for their Mobile Driver's Licenses (mDLs) standard.
-        It explicitly requires that mDL data be transmitted "along with a cryptographic signature from the Issuer proving that the data have not been altered"<sup><a href="#ref1" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>1</a></sup>.
+        It explicitly requires that mDL data be transmitted "along with a cryptographic signature from the Issuer proving that the data have not been altered"<sup><a href="#ref1" className="underline">1</a></sup>.
       </p>
 
       <p>
@@ -171,7 +171,7 @@ DAQ T16700285
       </p>
 
       <p>
-        The AAMVA does sell a solution to this vulnerability: the Driver's License Data Verification (DLDV) Service<sup><a href="#ref2" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>2</a></sup>.
+        The AAMVA does sell a solution to this vulnerability: the Driver's License Data Verification (DLDV) Service<sup><a href="#ref2" className="underline">2</a></sup>.
         This service allows businesses to submit data extracted from a DL/ID barcode and verify whether it matches the corresponding state DMV database records.
         In theory, this would catch <i>any</i> fraudulent modifications to barcode data for the states that support it.
       </p>
@@ -185,23 +185,23 @@ DAQ T16700285
       <p>
         Even if you <i>do</i> manage to get approved, DLDV is not a cost-effective solution.
         The pricing for DLDV is not publicly disclosed, but two providers (considered "Gateway Partners" by the AAMVA) publish their own pricing.
-        TokenWorks, a hardware vendor for ID scanning, charges $1.25 - $2 per scan<sup><a href="#ref3" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>3</a></sup> for their DMVCheck service, depending how many scans you need.
-        Dealertrack, a major dealership software platform, charges $4 per lookup with DLDV<sup><a href="#ref4" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>4</a></sup>.
+        TokenWorks, a hardware vendor for ID scanning, charges $1.25 - $2 per scan<sup><a href="#ref3" className="underline">3</a></sup> for their DMVCheck service, depending how many scans you need.
+        Dealertrack, a major dealership software platform, charges $4 per lookup with DLDV<sup><a href="#ref4" className="underline">4</a></sup>.
       </p>
 
       <p>
         Using DLDV simply is not a cost-effective solution for most businesses.
-        TokenWorks' DMVCheck service is regarded as a "a second line of defense"<sup><a href="#ref5" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>5</a></sup> simply because it is a pay-per-use service that would easily cost their customers (which are primarily bars and liquor stores) thousands of dollars per month to use for every scan.
+        TokenWorks' DMVCheck service is regarded as a "a second line of defense"<sup><a href="#ref5" className="underline">5</a></sup> simply because it is a pay-per-use service that would easily cost their customers (which are primarily bars and liquor stores) thousands of dollars per month to use for every scan.
       </p>
       <p>
         Rather than using DMVCheck for every single ID scan, TokenWorks opts to use IDSentry's Barcode Detective service.
         This service is much less accurate than using DLDV, but it allows for TokenWorks to advertise an "unlimited" amount of scans that can detect fraudulent IDs.
-        IDSentry can catch approximately 30% of fraudulent IDs from one of the most common ID vendors<sup><a href="#ref6" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>6</a></sup>, while DLDV can catch approximately 86% of fraudulent IDs<sup><a href="#ref7" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>7</a></sup>, a very significant difference.
+        IDSentry can catch approximately 30% of fraudulent IDs from one of the most common ID vendors<sup><a href="#ref6" className="underline">6</a></sup>, while DLDV can catch approximately 86% of fraudulent IDs<sup><a href="#ref7" className="underline">7</a></sup>, a very significant difference.
       </p>
 
       <p>
         The cost to businesses adds up quickly: a busy bar scanning 200 IDs per night at $2 per verification would pay over $140,000 annually for protection that cryptographic signatures could provide for free.
-        AAMVA does not disclose DLDV-specific revenue, but estimates suggest the service generates $5-13 million annually<sup><a href="#note1" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>*</a></sup>, a substantial portion of their operating budget.
+        AAMVA does not disclose DLDV-specific revenue, but estimates suggest the service generates $5-13 million annually<sup><a href="#note1" className="underline">*</a></sup>, a substantial portion of their operating budget.
       </p>
 
       <hr></hr>
@@ -216,105 +216,105 @@ DAQ T16700285
       <div className="my-6 overflow-x-auto">
         <table className="w-full border-collapse text-sm">
           <thead>
-            <tr className="bg-blue-50 dark:bg-blue-900/30">
-              <th className="border border-gray-300 dark:border-gray-700 px-4 py-3 text-left font-semibold text-blue-900 dark:text-blue-100"></th>
-              <th className="border border-gray-300 dark:border-gray-700 px-4 py-3 text-left font-semibold text-blue-900 dark:text-blue-100">
+            <tr style={{ backgroundColor: '#f5f5f4' }}>
+              <th style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem', textAlign: 'left', fontWeight: 600 }}></th>
+              <th style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem', textAlign: 'left', fontWeight: 600 }}>
                 Current Physical License
-                <span className="block text-xs font-normal text-gray-600 dark:text-gray-400 mt-1">AAMVA PDF417</span>
+                <span className="block text-xs font-normal mt-1" style={{ color: '#78716c' }}>AAMVA PDF417</span>
               </th>
-              <th className="border border-gray-300 dark:border-gray-700 px-4 py-3 text-left font-semibold text-blue-900 dark:text-blue-100">
+              <th style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem', textAlign: 'left', fontWeight: 600 }}>
                 Mobile Driver's License
-                <span className="block text-xs font-normal text-gray-600 dark:text-gray-400 mt-1">ISO 18013-5 mDL</span>
+                <span className="block text-xs font-normal mt-1" style={{ color: '#78716c' }}>ISO 18013-5 mDL</span>
               </th>
-              <th className="border border-gray-300 dark:border-gray-700 px-4 py-3 text-left font-semibold text-blue-900 dark:text-blue-100">
+              <th style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem', textAlign: 'left', fontWeight: 600 }}>
                 Proposed Signed Barcode
-                <span className="block text-xs font-normal text-gray-600 dark:text-gray-400 mt-1">PDF417 + Signature</span>
+                <span className="block text-xs font-normal mt-1" style={{ color: '#78716c' }}>PDF417 + Signature</span>
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3 font-medium bg-gray-50 dark:bg-gray-800/50">Data Format</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">Plaintext (AAMVA fields)</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">CBOR binary</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">Plaintext (AAMVA fields)</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem', fontWeight: 500, backgroundColor: '#fafaf9' }}>Data Format</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>Plaintext (AAMVA fields)</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>CBOR binary</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>Plaintext (AAMVA fields)</td>
             </tr>
             <tr>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3 font-medium bg-gray-50 dark:bg-gray-800/50">Data Readable By</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">Any PDF417 scanner</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">mDL-compatible apps</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">Any PDF417 scanner</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem', fontWeight: 500, backgroundColor: '#fafaf9' }}>Data Readable By</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>Any PDF417 scanner</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>mDL-compatible apps</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>Any PDF417 scanner</td>
             </tr>
             <tr>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3 font-medium bg-gray-50 dark:bg-gray-800/50">Cryptographic Signing</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
-                <span className="inline-flex items-center text-red-600 dark:text-red-400">
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem', fontWeight: 500, backgroundColor: '#fafaf9' }}>Cryptographic Signing</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>
+                <span className="inline-flex items-center" style={{ color: '#dc2626' }}>
                   <span className="mr-1">✗</span> Optional, proprietary
                 </span>
               </td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
-                <span className="inline-flex items-center text-green-600 dark:text-green-400">
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>
+                <span className="inline-flex items-center" style={{ color: '#16a34a' }}>
                   <span className="mr-1">✓</span> Required (COSE/ECDSA)
                 </span>
               </td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
-                <span className="inline-flex items-center text-green-600 dark:text-green-400">
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>
+                <span className="inline-flex items-center" style={{ color: '#16a34a' }}>
                   <span className="mr-1">✓</span> Required
                 </span>
               </td>
             </tr>
             <tr>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3 font-medium bg-gray-50 dark:bg-gray-800/50">Offline Verification</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
-                <span className="inline-flex items-center text-red-600 dark:text-red-400">
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem', fontWeight: 500, backgroundColor: '#fafaf9' }}>Offline Verification</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>
+                <span className="inline-flex items-center" style={{ color: '#dc2626' }}>
                   <span className="mr-1">✗</span> No
                 </span>
               </td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
-                <span className="inline-flex items-center text-green-600 dark:text-green-400">
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>
+                <span className="inline-flex items-center" style={{ color: '#16a34a' }}>
                   <span className="mr-1">✓</span> Yes
                 </span>
               </td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
-                <span className="inline-flex items-center text-green-600 dark:text-green-400">
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>
+                <span className="inline-flex items-center" style={{ color: '#16a34a' }}>
                   <span className="mr-1">✓</span> Yes
                 </span>
               </td>
             </tr>
             <tr>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3 font-medium bg-gray-50 dark:bg-gray-800/50">Forgery Detection</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
-                <span className="inline-flex items-center text-red-600 dark:text-red-400">
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem', fontWeight: 500, backgroundColor: '#fafaf9' }}>Forgery Detection</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>
+                <span className="inline-flex items-center" style={{ color: '#dc2626' }}>
                   <span className="mr-1">✗</span> Requires DLDV ($2+/scan)
                 </span>
               </td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
-                <span className="inline-flex items-center text-green-600 dark:text-green-400">
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>
+                <span className="inline-flex items-center" style={{ color: '#16a34a' }}>
                   <span className="mr-1">✓</span> Built-in, free
                 </span>
               </td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
-                <span className="inline-flex items-center text-green-600 dark:text-green-400">
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>
+                <span className="inline-flex items-center" style={{ color: '#16a34a' }}>
                   <span className="mr-1">✓</span> Built-in, free
                 </span>
               </td>
             </tr>
             <tr>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3 font-medium bg-gray-50 dark:bg-gray-800/50">PKI Infrastructure</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">None</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">AAMVA DTS / VICAL</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">AAMVA DTS / VICAL</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem', fontWeight: 500, backgroundColor: '#fafaf9' }}>PKI Infrastructure</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>None</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>AAMVA DTS / VICAL</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>AAMVA DTS / VICAL</td>
             </tr>
             <tr>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3 font-medium bg-gray-50 dark:bg-gray-800/50">Backward Compatible</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">N/A</td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
-                <span className="inline-flex items-center text-red-600 dark:text-red-400">
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem', fontWeight: 500, backgroundColor: '#fafaf9' }}>Backward Compatible</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>N/A</td>
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>
+                <span className="inline-flex items-center" style={{ color: '#dc2626' }}>
                   <span className="mr-1">✗</span> No
                 </span>
               </td>
-              <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
-                <span className="inline-flex items-center text-green-600 dark:text-green-400">
+              <td style={{ border: '1px solid #e7e5e4', padding: '0.75rem 1rem' }}>
+                <span className="inline-flex items-center" style={{ color: '#16a34a' }}>
                   <span className="mr-1">✓</span> Yes
                 </span>
               </td>
@@ -432,13 +432,13 @@ DAQ T16700285
         It's whether they <i>will</i>, and what it would take to make security more profitable than vulnerability.
       </p>
 
-      <div className="mt-2 pt-2 border-t-2 border-blue-200 dark:border-blue-800">
-        <h2 className="text-2xl font-bold text-blue-950 dark:text-blue-50 mb-4">Notes</h2>
-        <div className="text-sm text-gray-700 dark:text-gray-300">
+      <div className="mt-8 pt-4" style={{ borderTop: '1px solid #e7e5e4' }}>
+        <h2 className="text-xl font-bold mb-4" style={{ color: '#1c1917' }}>Notes</h2>
+        <div className="text-sm" style={{ color: '#57534e' }}>
           <p id="note1" className="mb-4">
             <sup className="font-semibold">*</sup> <span className="font-semibold">Revenue Estimate:</span>{' '}
-            AAMVA does not disclose DLDV-specific revenue. Their Form 990 filings show $42M in program services revenue (FY2023), but bundle all verification systems together.<sup><a href="#ref8" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>8</a></sup>{' '}
-            The NMVTIS Annual Report shows that system generated $9.6M,<sup><a href="#ref9" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" style={{ textDecoration: 'none' }}>9</a></sup>{' '}
+            AAMVA does not disclose DLDV-specific revenue. Their Form 990 filings show $42M in program services revenue (FY2023), but bundle all verification systems together.<sup><a href="#ref8" className="underline">8</a></sup>{' '}
+            The NMVTIS Annual Report shows that system generated $9.6M,<sup><a href="#ref9" className="underline">9</a></sup>{' '}
             leaving ~$32M for DLDV, CDLIS, S2S, and smaller programs.
             DLDV is the only one that operates as a commercial fee-per-query service without federal funding.
             There is still a level of uncertainty about DLDV's share of that revenue.
@@ -446,9 +446,9 @@ DAQ T16700285
         </div>
       </div>
 
-      <div className="mt-8 pt-2 border-t-2 border-blue-200 dark:border-blue-800">
-        <h2 className="text-2xl font-bold text-blue-950 dark:text-blue-50 mb-4">References</h2>
-        <ol className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+      <div className="mt-8 pt-4" style={{ borderTop: '1px solid #e7e5e4' }}>
+        <h2 className="text-xl font-bold mb-4" style={{ color: '#1c1917' }}>References</h2>
+        <ol className="space-y-3 text-sm" style={{ color: '#57534e' }}>
           {/* 
             Uses APA citation style (7th edition)
             Format: Author. (Date). Title in italics. Publisher Name. URL
@@ -461,7 +461,7 @@ DAQ T16700285
               href="https://www.aamva.org/getmedia/6c37bda5-e43d-493e-8294-bba0d18aa2f9/mDL-FAQ-for-LE-01242024.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+              className="underline break-all"
             >
               https://www.aamva.org/getmedia/6c37bda5-e43d-493e-8294-bba0d18aa2f9/mDL-FAQ-for-LE-01242024.pdf
             </a>
@@ -473,7 +473,7 @@ DAQ T16700285
               href="https://www.aamva.org/technology/systems/verification-systems/dldv"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+              className="underline break-all"
             >
               https://www.aamva.org/technology/systems/verification-systems/dldv
             </a>
@@ -485,7 +485,7 @@ DAQ T16700285
               href="https://account.tokenworks.net/Transactions/Transactions"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+              className="underline break-all"
             >
               https://account.tokenworks.net/Transactions/Transactions
             </a>
@@ -497,7 +497,7 @@ DAQ T16700285
               href="https://us.dealertrack.com/wp-content/uploads/sites/2/2025/01/Virginia-DLDV-FAQs.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+              className="underline break-all"
             >
               https://us.dealertrack.com/wp-content/uploads/sites/2/2025/01/Virginia-DLDV-FAQs.pdf
             </a>
@@ -509,7 +509,7 @@ DAQ T16700285
               href="https://www.idscanner.com/drivers-license-news/introducing-dmvcheck-enhanced-id-verification-technology-for-identifake-systems/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+              className="underline break-all"
             >
               https://www.idscanner.com/drivers-license-news/introducing-dmvcheck-enhanced-id-verification-technology-for-identifake-systems/
             </a>
@@ -521,7 +521,7 @@ DAQ T16700285
               href="https://idscanning.pages.dev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+              className="underline break-all"
             >
               https://idscanning.pages.dev/
             </a>
@@ -533,7 +533,7 @@ DAQ T16700285
               href="https://www.aamva.org/it-systems-participation-map?id=594"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+              className="underline break-all"
             >
               https://www.aamva.org/it-systems-participation-map?id=594
             </a>
@@ -545,7 +545,7 @@ DAQ T16700285
               href="https://projects.propublica.org/nonprofits/organizations/530172317"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+              className="underline break-all"
             >
               https://projects.propublica.org/nonprofits/organizations/530172317
             </a>
@@ -557,7 +557,7 @@ DAQ T16700285
               href="https://www.aamva.org/getmedia/71c7a1a1-7692-48e1-9138-b71c702f2988/NMVTIS-FY2023-Annual-Report.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline break-all"
+              className="underline break-all"
             >
               https://www.aamva.org/getmedia/71c7a1a1-7692-48e1-9138-b71c702f2988/NMVTIS-FY2023-Annual-Report.pdf
             </a>
