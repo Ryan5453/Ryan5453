@@ -28,6 +28,36 @@ interface Track {
 
 const Portfolio: React.FC = () => {
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
+  const [displayedName, setDisplayedName] = useState('');
+  const [cursorBlink, setCursorBlink] = useState(true);
+  const [cursorVisible, setCursorVisible] = useState(true);
+  const fullName = 'Ryan Fahey';
+
+  // Typing animation effect
+  useEffect(() => {
+    if (displayedName.length < fullName.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedName(fullName.slice(0, displayedName.length + 1));
+      }, 100);
+      return () => clearTimeout(timeout);
+    }
+  }, [displayedName]);
+
+  // Blinking cursor effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCursorBlink(prev => !prev);
+    }, 530);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Hide cursor after 5 seconds
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCursorVisible(false);
+    }, 5000);
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     const fetchTrack = async () => {
@@ -56,7 +86,17 @@ const Portfolio: React.FC = () => {
             className="text-2xl font-bold"
             style={{ color: '#1c1917' }}
           >
-            Ryan Fahey
+            {displayedName}
+            <span
+              style={{
+                opacity: cursorVisible && cursorBlink ? 1 : 0,
+                fontWeight: 'normal',
+                marginLeft: '2px',
+                color: '#1c1917'
+              }}
+            >
+              |
+            </span>
           </h1>
           <div className="flex items-center gap-4 mt-4">
             <a href="https://github.com/Ryan5453" className="hover:opacity-60 transition-opacity" style={{ color: '#1c1917' }} title="GitHub">
