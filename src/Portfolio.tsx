@@ -62,6 +62,13 @@ const Portfolio: React.FC = () => {
   useEffect(() => {
     const fetchTrack = async () => {
       try {
+        /**
+         * If someone is reading this, I know the API key is embedded directly here
+         * last.fm's api is quite weird - they have api keys and api secrets, the api key
+         * here used below is practically a client id - ie if you wanted to do oauth with
+         * that client, you give that url to the user to sign in. it's a weird system but
+         * it doesn't matter whether this is exposed or not
+         */
         const response = await fetch(
           `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Ryan5453&api_key=f3878d8bcb04561fe918bb6f22ba808f&format=json`
         );
@@ -121,19 +128,15 @@ const Portfolio: React.FC = () => {
         </header>
 
         {/* About */}
-        <section className="mb-12" style={{ color: '#1c1917' }}>
+        <section className="mb-8" style={{ color: '#1c1917' }}>
           <p className="mb-4 leading-relaxed">
-            I'm a software and infrastructure engineer currently pursuing my bachelor's in computer science at Northeastern University.
-            Previously worked as an MLOps & Infrastructure Engineer at <a href="https://montai.com">Montai Therapeutics</a> on co-op.
-          </p>
-          <p className="leading-relaxed">
-            I'm passionate about building robust, scalable systems and machine learning (especially speech synthesis, ASR, and LLMs).
-            I find the intersection of these areas particularly fascinating.
+            Hi! I'm a software and infrastructure engineer currently pursuing my bachelor's in computer science at Northeastern University.
+            I previously worked as an MLOps & Infrastructure Engineer at <a href="https://montai.com">Montai Therapeutics</a> on co-op.
           </p>
         </section>
 
         {/* Projects */}
-        <section className="mb-12">
+        <section className="mb-8">
           <h2 className="text-sm uppercase tracking-wide mb-6" style={{ color: '#57534e' }}>Projects</h2>
 
           <div className="space-y-6">
@@ -151,8 +154,7 @@ const Portfolio: React.FC = () => {
                 </div>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#57534e' }}>
-                Free text-to-speech service that unifies multiple TTS providers into a single platform. Features a developer-first API and clean web interface, with a focus on simplicity and ease of use. Processes 1M+ requests per month.
-              </p>
+                Unified TTS API aggregating 1,400+ voices from 16 backends (Azure, Polly, Cartesia, eSpeak, and others) into a single SSML-compliant endpoint. Features a custom SSML parser with extensions for real-time translation and audio mixing. Processes 1M+ requests per month.              </p>
             </div>
 
             <div className="border rounded-lg p-5" style={{ borderColor: '#e7e5e4', backgroundColor: '#ffffff' }}>
@@ -173,8 +175,7 @@ const Portfolio: React.FC = () => {
                 </div>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#57534e' }}>
-                Modern fork of Demucs for separating audio into isolated stems (vocals, drums, bass, and more). Includes a web app that runs models fully in-browser with WebGPU support. The Python library features a redesigned API for ease of use, support for Python 3.10+, latest PyTorch/TorchCodec versions, and UV for streamlined dependency management.
-              </p>
+                Modern fork of Meta's Demucs for separating audio into isolated stems (vocals, drums, bass, and more). The web app runs inference fully in-browser via WebGPU. Python library supports multiple deployment strategies (CLI, Python API, REST via Cog), Python 3.10+, and latest PyTorch/TorchCodec versions.              </p>
             </div>
 
             <div className="border rounded-lg p-5" style={{ borderColor: '#e7e5e4', backgroundColor: '#ffffff' }}>
@@ -184,7 +185,6 @@ const Portfolio: React.FC = () => {
                   <h3 className="font-bold" style={{ color: '#1c1917' }}>LyricScribe</h3>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-xs px-2 py-0.5 rounded" style={{ backgroundColor: '#f5f5f4', color: '#78716c' }}>Paused</span>
                   <a href="https://github.com/Ryan5453/LyricScribe" className="hover:opacity-60 transition-opacity flex items-center gap-1 text-sm" style={{ color: '#57534e' }} title="GitHub">
                     <Github size={14} />
                     <span>GitHub</span>
@@ -192,8 +192,7 @@ const Portfolio: React.FC = () => {
                 </div>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#57534e' }}>
-                Research project investigating accurate lyric transcription from music using ML pipelines. Evaluates and combines different vocal separation and speech recognition models to tackle the unique challenges and complexities of music transcription.
-              </p>
+                Research project investigating how CTC vs. autoregressive ASR architectures respond to source separation artifacts for automatic lyrics transcription. Fine-tuning Whisper, Canary, and Parakeet models and evaluating error patterns (insertions vs. deletions) across architectures.              </p>
             </div>
           </div>
         </section>
