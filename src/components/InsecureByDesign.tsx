@@ -342,68 +342,13 @@ DAQ T16700285
         Legacy scanners that don't recognize the new field would simply ignore it, continuing to read name, DOB, and other fields exactly as they do today.
       </p>
 
-      <div className="my-8">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-          <div className="relative">
-            <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2 text-center uppercase tracking-wider">Current</div>
-            <div className="relative">
-              <svg viewBox="0 0 120 40" className="w-48 h-16">
-                <rect x="0" y="0" width="120" height="40" fill="#f3f4f6" rx="2" />
-                {[2, 1, 2, 1, 1, 2, 1, 2, 2, 1, 1, 2, 1, 2, 1, 1, 2, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 1, 2].map((w, i) => (
-                  <rect key={i} x={4 + i * 3.2} y="4" width={w} height="32" fill="#374151" />
-                ))}
-              </svg>
-              <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-white text-xs font-bold">!</span>
-              </div>
-            </div>
-            <div className="mt-3 text-center">
-              <span className="text-xs text-red-600 dark:text-red-400 font-medium">Forgeable</span>
-            </div>
-          </div>
-
-          <div className="text-gray-300 dark:text-gray-600">
-            <svg className="w-6 h-6 md:rotate-0 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </div>
-
-          <div className="relative">
-            <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2 text-center uppercase tracking-wider">Proposed</div>
-            <div className="relative">
-              <svg viewBox="0 0 120 40" className="w-48 h-16">
-                <rect x="0" y="0" width="120" height="40" fill="#f3f4f6" rx="2" />
-                {[2, 1, 2, 1, 1, 2, 1, 2, 2, 1, 1, 2, 1, 2, 1, 1, 2, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 1].map((w, i) => (
-                  <rect key={i} x={4 + i * 3.2} y="4" width={w} height="32" fill="#374151" />
-                ))}
-                <rect x="94" y="2" width="24" height="36" fill="#dcfce7" rx="1" />
-                {[1, 2, 1, 2, 1, 2].map((w, i) => (
-                  <rect key={`s${i}`} x={96 + i * 3.2} y="4" width={w} height="32" fill="#16a34a" />
-                ))}
-              </svg>
-              <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
-                <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-            </div>
-            <div className="mt-3 text-center">
-              <span className="text-xs text-green-600 dark:text-green-400 font-medium">Verified</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-center gap-6 mt-5 text-xs text-gray-500 dark:text-gray-400">
-          <div className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 bg-gray-600 rounded-sm"></div>
-            <span>Data</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 bg-green-500 rounded-sm"></div>
-            <span>Signature</span>
-          </div>
-        </div>
-      </div>
+      <pre className="my-6 bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm font-mono">
+        <code style={{ color: '#9ca3af' }}>...</code>{'\n'}
+        DAQ T16700285{'\n'}
+        <code className="px-1 rounded" style={{ backgroundColor: 'rgba(34, 197, 94, 0.2)', color: '#4ade80' }}>ZZS MEUCIQDrX2v8mK9pLq...7fHsA3dKwIgY2==</code>  <code style={{ color: '#6b7280' }}>← signature</code>{'\n'}
+        DBC 1{'\n'}
+        <code style={{ color: '#9ca3af' }}>...</code>
+      </pre>
 
       <p className="mb-4 leading-relaxed">
         There are no technical barriers to enabling secure barcodes as the PKI infrastructure is already being built anyway for mDL.
