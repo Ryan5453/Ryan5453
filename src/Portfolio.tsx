@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Mail, Github, Linkedin, Twitter, Mic, Key, ExternalLink, BookOpen } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Mic } from 'lucide-react';
+import TerminalWindow from './components/TerminalWindow';
 import floweryLogo from './assets/flowery.svg';
 import demucsLogo from '/demucs.svg';
 
@@ -29,11 +30,13 @@ interface Track {
 const Portfolio: React.FC = () => {
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
   const [displayedName, setDisplayedName] = useState('');
-  const [cursorBlink, setCursorBlink] = useState(true);
-  const [cursorVisible, setCursorVisible] = useState(true);
+  const [showCursor, setShowCursor] = useState(true);
+  const [displayedTrackName, setDisplayedTrackName] = useState('');
+  const [displayedTrackArtist, setDisplayedTrackArtist] = useState('');
+  const [trackCursor, setTrackCursor] = useState(false);
+  const prevTrackRef = useRef('');
   const fullName = 'Ryan Fahey';
 
-  // Typing animation effect
   useEffect(() => {
     if (displayedName.length < fullName.length) {
       const timeout = setTimeout(() => {
@@ -43,31 +46,44 @@ const Portfolio: React.FC = () => {
     }
   }, [displayedName]);
 
-  // Blinking cursor effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCursorBlink(prev => !prev);
-    }, 530);
-    return () => clearInterval(interval);
+    const timeout = setTimeout(() => setShowCursor(false), 5000);
+    return () => clearTimeout(timeout);
   }, []);
 
-  // Hide cursor after 5 seconds
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setCursorVisible(false);
-    }, 5000);
-    return () => clearTimeout(timeout);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+
+      const shortcuts: Record<string, string> = {
+        g: 'https://github.com/Ryan5453',
+        t: 'https://twitter.com/Ryan5453',
+        l: 'https://linkedin.com/in/Ryan5453',
+        m: 'mailto:ryan@ryan.science',
+        k: 'https://github.com/Ryan5453.gpg',
+        b: '/blog',
+      };
+
+      const url = shortcuts[e.key];
+      if (!url) return;
+
+      if (e.key === 'b') {
+        window.location.href = url;
+      } else {
+        window.open(url, '_blank');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   useEffect(() => {
     const fetchTrack = async () => {
       try {
         /**
-         * If someone is reading this, I know the API key is embedded directly here
-         * last.fm's api is quite weird - they have api keys and api secrets, the api key
-         * here used below is practically a client id - ie if you wanted to do oauth with
-         * that client, you give that url to the user to sign in. it's a weird system but
-         * it doesn't matter whether this is exposed or not
+         * last.fm api keys are effectively client IDs — safe to expose.
+         * The api secret (not used here) is the actual credential.
          */
         const response = await fetch(
           `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Ryan5453&api_key=f3878d8bcb04561fe918bb6f22ba808f&format=json`
@@ -84,143 +100,220 @@ const Portfolio: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const trackName = currentTrack ? `♫ ${currentTrack.name}` : '';
+  const trackArtist = currentTrack
+    ? `${currentTrack.artist['#text']} — ${currentTrack.album['#text']}`
+    : '';
+  const trackKey = currentTrack
+    ? `${currentTrack.name}|${currentTrack.artist['#text']}`
+    : '';
+
+  useEffect(() => {
+    if (trackKey && trackKey !== prevTrackRef.current) {
+      prevTrackRef.current = trackKey;
+      setDisplayedTrackName('');
+      setDisplayedTrackArtist('');
+      setTrackCursor(true);
+    }
+  }, [trackKey]);
+
+  useEffect(() => {
+    if (!trackName || displayedTrackName.length >= trackName.length) return;
+    const timeout = setTimeout(() => {
+      setDisplayedTrackName(trackName.slice(0, displayedTrackName.length + 1));
+    }, 40);
+    return () => clearTimeout(timeout);
+  }, [displayedTrackName, trackName]);
+
+  useEffect(() => {
+    if (!trackName || displayedTrackName.length < trackName.length) return;
+    if (!trackArtist || displayedTrackArtist.length >= trackArtist.length) return;
+    const timeout = setTimeout(() => {
+      setDisplayedTrackArtist(trackArtist.slice(0, displayedTrackArtist.length + 1));
+    }, 40);
+    return () => clearTimeout(timeout);
+  }, [displayedTrackArtist, trackArtist, displayedTrackName, trackName]);
+
+  useEffect(() => {
+    if (!trackArtist || displayedTrackArtist.length < trackArtist.length) return;
+    const timeout = setTimeout(() => setTrackCursor(false), 3000);
+    return () => clearTimeout(timeout);
+  }, [displayedTrackArtist, trackArtist]);
+
+  const isTypingName = trackName.length > 0 && displayedTrackName.length < trackName.length;
+
+  const statusBar = (
+    <>
+      <div className="flex items-center gap-4 flex-wrap">
+        <a href="https://github.com/Ryan5453" target="_blank" rel="noopener noreferrer" className="shortcut-link">
+          <span className="text-tui-yellow">[g]</span>ithub
+        </a>
+        <a href="https://twitter.com/Ryan5453" target="_blank" rel="noopener noreferrer" className="shortcut-link">
+          <span className="text-tui-yellow">[t]</span>witter
+        </a>
+        <a href="https://linkedin.com/in/Ryan5453" target="_blank" rel="noopener noreferrer" className="shortcut-link">
+          <span className="text-tui-yellow">[l]</span>inkedin
+        </a>
+        <a href="mailto:ryan@ryan.science" className="shortcut-link">
+          <span className="text-tui-yellow">[m]</span>ail
+        </a>
+        <a href="https://github.com/Ryan5453.gpg" target="_blank" rel="noopener noreferrer" className="shortcut-link">
+          <span className="text-tui-yellow">[k]</span>ey
+        </a>
+        <a href="/blog" className="shortcut-link">
+          <span className="text-tui-yellow">[b]</span>log
+        </a>
+      </div>
+      <span className="text-tui-dim hidden sm:inline">ryan.science</span>
+    </>
+  );
+
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f5f5f4' }}>
-      <div className="max-w-2xl mx-auto px-6 py-16">
-        {/* Header */}
-        <header className="mb-12">
-          <h1
-            className="text-2xl font-bold"
-            style={{ color: '#1c1917' }}
-          >
-            {displayedName}
-            <span
-              style={{
-                opacity: cursorVisible && cursorBlink ? 1 : 0,
-                fontWeight: 'normal',
-                marginLeft: '2px',
-                color: '#1c1917'
-              }}
-            >
-              |
-            </span>
-          </h1>
-          <div className="flex items-center gap-4 mt-4">
-            <a href="https://github.com/Ryan5453" className="hover:opacity-60 transition-opacity" style={{ color: '#1c1917' }} title="GitHub">
-              <Github size={18} />
-            </a>
-            <a href="https://twitter.com/Ryan5453" className="hover:opacity-60 transition-opacity" style={{ color: '#1c1917' }} title="Twitter">
-              <Twitter size={18} />
-            </a>
-            <a href="https://linkedin.com/in/Ryan5453" className="hover:opacity-60 transition-opacity" style={{ color: '#1c1917' }} title="LinkedIn">
-              <Linkedin size={18} />
-            </a>
-            <a href="mailto:ryan@ryan.science" className="hover:opacity-60 transition-opacity" style={{ color: '#1c1917' }} title="Email">
-              <Mail size={18} />
-            </a>
-            <a href="https://github.com/Ryan5453.gpg" className="hover:opacity-60 transition-opacity" style={{ color: '#1c1917' }} title="GPG Key">
-              <Key size={18} />
-            </a>
-            <a href="/blog" className="hover:opacity-60 transition-opacity" style={{ color: '#1c1917' }} title="Blog">
-              <BookOpen size={18} />
-            </a>
-          </div>
-        </header>
+    <TerminalWindow statusBar={statusBar}>
+      {/* Header */}
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold text-tui-bright">
+          {displayedName}
+          {showCursor && <span className="cursor-block">█</span>}
+        </h1>
+        <p className="text-tui-dim mt-1 text-sm">software & infrastructure engineer</p>
+      </div>
 
-        {/* About */}
-        <section className="mb-8" style={{ color: '#1c1917' }}>
-          <p className="mb-4 leading-relaxed">
-            Hi! I'm a software and infrastructure engineer currently pursuing my bachelor's in computer science at Northeastern University.
-            I previously worked as an MLOps & Infrastructure Engineer at <a href="https://montai.com">Montai Therapeutics</a> on co-op.
-          </p>
-        </section>
-
-        {/* Projects */}
-        <section className="mb-8">
-          <h2 className="text-sm uppercase tracking-wide mb-6" style={{ color: '#57534e' }}>Projects</h2>
-
-          <div className="space-y-6">
-            <div className="border rounded-lg p-5" style={{ borderColor: '#e7e5e4', backgroundColor: '#ffffff' }}>
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <img src={floweryLogo} alt="Flowery" className="w-5 h-5" />
-                  <h3 className="font-bold" style={{ color: '#1c1917' }}>Flowery</h3>
-                </div>
-                <div className="flex items-center gap-3">
-                  <a href="https://flowery.pw" className="hover:opacity-60 transition-opacity flex items-center gap-1 text-sm" style={{ color: '#57534e' }} title="Website">
-                    <ExternalLink size={14} />
-                    <span>Website</span>
-                  </a>
-                </div>
-              </div>
-              <p className="text-sm leading-relaxed" style={{ color: '#57534e' }}>
-                Unified TTS API aggregating 1,400+ voices from 16 backends (Azure, Polly, Cartesia, eSpeak, and others) into a single SSML-compliant endpoint. Features a custom SSML parser with extensions for real-time translation and audio mixing. Processes 1M+ requests per month.              </p>
+      {/* About — neofetch style */}
+      <div className="tui-panel">
+        <span className="tui-panel-title">about</span>
+        <div className="flex gap-6">
+          <pre className="hidden md:block text-tui-green text-sm leading-tight select-none mt-1">{`┌──┐\n│>_│\n└──┘`}</pre>
+          <div className="space-y-1 text-sm">
+            <div>
+              <span className="text-tui-cyan font-bold">ryan</span>
+              <span className="text-tui-dim">@</span>
+              <span className="text-tui-cyan font-bold">ryan.science</span>
             </div>
-
-            <div className="border rounded-lg p-5" style={{ borderColor: '#e7e5e4', backgroundColor: '#ffffff' }}>
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <img src={demucsLogo} alt="Demucs" className="w-5 h-5" />
-                  <h3 className="font-bold" style={{ color: '#1c1917' }}>demucs-next</h3>
-                </div>
-                <div className="flex items-center gap-3">
-                  <a href="https://demucs.app" className="hover:opacity-60 transition-opacity flex items-center gap-1 text-sm" style={{ color: '#57534e' }} title="Website">
-                    <ExternalLink size={14} />
-                    <span>Website</span>
-                  </a>
-                  <a href="https://github.com/Ryan5453/demucs-next" className="hover:opacity-60 transition-opacity flex items-center gap-1 text-sm" style={{ color: '#57534e' }} title="GitHub">
-                    <Github size={14} />
-                    <span>GitHub</span>
-                  </a>
-                </div>
-              </div>
-              <p className="text-sm leading-relaxed" style={{ color: '#57534e' }}>
-                Modern fork of Meta's Demucs for separating audio into isolated stems (vocals, drums, bass, and more). The web app runs inference fully in-browser via WebGPU. Python library supports multiple deployment strategies (CLI, Python API, REST via Cog), Python 3.10+, and latest PyTorch/TorchCodec versions.              </p>
+            <div className="text-tui-border select-none">─────────────────────</div>
+            <div>
+              <span className="text-tui-magenta">role </span>
+              <span className="text-tui-dim">~</span> software & infrastructure engineer
             </div>
-
-            <div className="border rounded-lg p-5" style={{ borderColor: '#e7e5e4', backgroundColor: '#ffffff' }}>
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <Mic size={18} style={{ color: '#57534e' }} />
-                  <h3 className="font-bold" style={{ color: '#1c1917' }}>LyricScribe</h3>
-                </div>
-                <div className="flex items-center gap-3">
-                  <a href="https://github.com/Ryan5453/LyricScribe" className="hover:opacity-60 transition-opacity flex items-center gap-1 text-sm" style={{ color: '#57534e' }} title="GitHub">
-                    <Github size={14} />
-                    <span>GitHub</span>
-                  </a>
-                </div>
-              </div>
-              <p className="text-sm leading-relaxed" style={{ color: '#57534e' }}>
-                Research project investigating how CTC vs. autoregressive ASR architectures respond to source separation artifacts for automatic lyrics transcription. Fine-tuning Whisper, Canary, and Parakeet models and evaluating error patterns (insertions vs. deletions) across architectures.              </p>
+            <div>
+              <span className="text-tui-magenta">edu  </span>
+              <span className="text-tui-dim">~</span> northeastern university (cs, ai concentration)
+            </div>
+            <div>
+              <span className="text-tui-magenta">prev </span>
+              <span className="text-tui-dim">~</span>{' '}
+              <a href="https://montai.com" className="text-tui-cyan hover:underline">montai therapeutics</a>{' '}
+              (mlops/infra & swe)
+            </div>
+            <div>
+              <span className="text-tui-magenta">blog </span>
+              <span className="text-tui-dim">~</span>{' '}
+              <a href="/blog" className="text-tui-cyan hover:underline">ryan.science/blog</a>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
 
-        {/* Now Playing */}
-        {currentTrack && (
-          <section>
-            <h2 className="text-sm uppercase tracking-wide mb-4" style={{ color: '#57534e' }}>Now Playing</h2>
-            <a href={currentTrack.url} className="block group">
-              <div className="border rounded-lg p-5 hover:border-stone-400 transition-colors" style={{ borderColor: '#e7e5e4', backgroundColor: '#ffffff' }}>
-                <div className="flex items-start gap-4">
-                  <img
-                    src={currentTrack.image[3]['#text'] || "/api/placeholder/64/64"}
-                    alt="Album Art"
-                    className="w-16 h-16 rounded object-cover"
-                  />
-                  <div className="min-w-0">
-                    <div className="font-medium truncate" style={{ color: '#1c1917' }}>{currentTrack.name}</div>
-                    <div className="text-sm truncate" style={{ color: '#57534e' }}>{currentTrack.artist['#text']}</div>
-                    <div className="text-sm truncate" style={{ color: '#78716c' }}>{currentTrack.album['#text']}</div>
-                  </div>
+      {/* Projects */}
+      <div className="tui-panel">
+        <span className="tui-panel-title">projects</span>
+        <div className="space-y-1">
+          {/* Flowery */}
+          <div className="project-item">
+            <div className="flex items-start gap-3">
+              <span className="text-tui-yellow mt-0.5">▸</span>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  <img src={floweryLogo} alt="" className="w-4 h-4" />
+                  <span className="text-tui-bright font-bold">Flowery</span>
+                  <span className="text-tui-dim text-xs">·</span>
+                  <a href="https://flowery.pw" target="_blank" rel="noopener noreferrer" className="text-tui-cyan hover:underline text-xs">
+                    flowery.pw
+                  </a>
                 </div>
+                <p className="text-sm text-tui-dim mt-1 leading-relaxed">
+                  Unified TTS API aggregating 1,400+ voices from 16 backends. Custom SSML parser with real-time translation and audio mixing. 1M+ requests/month.
+                </p>
               </div>
-            </a>
-          </section>
+            </div>
+          </div>
+
+          {/* demucs-next */}
+          <div className="project-item">
+            <div className="flex items-start gap-3">
+              <span className="text-tui-yellow mt-0.5">▸</span>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  <img src={demucsLogo} alt="" className="w-4 h-4" />
+                  <span className="text-tui-bright font-bold whitespace-nowrap">demucs-next</span>
+                  <span className="text-tui-dim text-xs">·</span>
+                  <a href="https://demucs.app" target="_blank" rel="noopener noreferrer" className="text-tui-cyan hover:underline text-xs">
+                    demucs.app
+                  </a>
+                  <a href="https://github.com/Ryan5453/demucs-next" target="_blank" rel="noopener noreferrer" className="text-tui-dim hover:text-tui-text text-xs">
+                    github
+                  </a>
+                </div>
+                <p className="text-sm text-tui-dim mt-1 leading-relaxed">
+                  Modern fork of Meta's Demucs for audio stem separation. WebGPU in-browser inference. Python library with CLI, API, and REST support.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* LyricScribe */}
+          <div className="project-item">
+            <div className="flex items-start gap-3">
+              <span className="text-tui-yellow mt-0.5">▸</span>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  <Mic size={16} className="text-tui-dim" />
+                  <span className="text-tui-bright font-bold">LyricScribe</span>
+                  <span className="text-tui-dim text-xs">·</span>
+                  <a href="https://github.com/Ryan5453/LyricScribe" target="_blank" rel="noopener noreferrer" className="text-tui-dim hover:text-tui-text text-xs">
+                    github
+                  </a>
+                </div>
+                <p className="text-sm text-tui-dim mt-1 leading-relaxed">
+                  Research on CTC vs. autoregressive ASR architectures and source separation artifacts. Fine-tuning Whisper, Canary, and Parakeet models.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Now Playing */}
+      <div className="tui-panel">
+        <span className="tui-panel-title">now-playing</span>
+        {currentTrack ? (
+          <a href={currentTrack.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+            <img
+              src={currentTrack.image[3]['#text'] || ''}
+              alt=""
+              className="w-12 h-12 border border-tui-border"
+            />
+            <div className="min-w-0">
+              <div className="text-tui-green truncate">
+                {displayedTrackName}
+                {trackCursor && isTypingName && <span className="cursor-block">█</span>}
+              </div>
+              <div className="text-sm text-tui-dim truncate">
+                {displayedTrackArtist || '\u00A0'}
+                {trackCursor && !isTypingName && <span className="cursor-block">█</span>}
+              </div>
+            </div>
+          </a>
+        ) : (
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 border border-tui-border bg-tui-bg" />
+            <div className="text-tui-dim text-sm">
+              listening<span className="cursor-block">█</span>
+            </div>
+          </div>
         )}
       </div>
-    </div>
+    </TerminalWindow>
   );
 };
 

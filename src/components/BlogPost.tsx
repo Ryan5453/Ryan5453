@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, Calendar } from 'lucide-react';
+import React, { ReactNode, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import TerminalWindow from './TerminalWindow';
 
 interface BlogPostProps {
   title: string;
@@ -9,40 +9,48 @@ interface BlogPostProps {
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({ title, date, children }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.key === 'b') navigate('/blog');
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [navigate]);
+
+  const slug = title.toLowerCase().replace(/\s+/g, '-');
+
+  const statusBar = (
+    <>
+      <Link to="/blog" className="shortcut-link">
+        <span className="text-tui-yellow">[b]</span>ack
+      </Link>
+      <span className="text-tui-dim truncate max-w-[60%] text-right">{title}</span>
+    </>
+  );
+
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f5f5f4' }}>
-      <div className="max-w-2xl mx-auto px-6 py-16">
-        <article>
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 hover:opacity-60 transition-opacity mb-8"
-            style={{ color: '#57534e' }}
-          >
-            <ArrowLeft size={18} />
-            <span>Back to Blog</span>
-          </Link>
+    <TerminalWindow title={`ryan@ryan.science: ~/blog/${slug}`} statusBar={statusBar}>
+      <article>
+        <h1 className="text-2xl font-bold text-tui-bright mb-3">
+          {title}
+        </h1>
 
-          <h1 className="text-2xl font-bold mb-3" style={{ color: '#1c1917' }}>
-            {title}
-          </h1>
+        <div className="text-sm text-tui-dim mb-8 pb-8 border-b border-tui-border">
+          {new Date(`${date}T12:00:00`).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </div>
 
-          <div className="flex items-center gap-2 text-sm mb-8 pb-8" style={{ color: '#78716c', borderBottom: '1px solid #e7e5e4' }}>
-            <Calendar size={14} />
-            <time dateTime={date}>
-              {new Date(`${date}T12:00:00`).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
-            </time>
-          </div>
-
-          <div className="prose max-w-none" style={{ color: '#1c1917' }}>
-            {children}
-          </div>
-        </article>
-      </div>
-    </div>
+        <div className="prose max-w-none">
+          {children}
+        </div>
+      </article>
+    </TerminalWindow>
   );
 };
 
