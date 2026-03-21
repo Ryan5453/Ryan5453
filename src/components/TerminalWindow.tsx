@@ -15,11 +15,7 @@ const TerminalWindow: React.FC<TerminalWindowProps> = ({
     <div className="min-h-screen flex flex-col bg-tui-bg-dark">
       {/* Title Bar */}
       <div className="sticky top-0 z-10 flex items-center justify-between px-4 py-2 bg-tui-bg border-b border-tui-border">
-        <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ff5f57' }} />
-          <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#febc2e' }} />
-          <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#28c840' }} />
-        </div>
+        <div className="w-[52px]" />
         <span className="text-xs text-tui-dim">{title}</span>
         <div className="w-[52px]" />
       </div>

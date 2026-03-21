@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Mic } from 'lucide-react';
 import TerminalWindow from './components/TerminalWindow';
-import floweryLogo from './assets/flowery.svg';
-import demucsLogo from '/demucs.svg';
 
 interface TrackImage {
   '#text': string;
@@ -29,27 +26,10 @@ interface Track {
 
 const Portfolio: React.FC = () => {
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
-  const [displayedName, setDisplayedName] = useState('');
-  const [showCursor, setShowCursor] = useState(true);
   const [displayedTrackName, setDisplayedTrackName] = useState('');
   const [displayedTrackArtist, setDisplayedTrackArtist] = useState('');
   const [trackCursor, setTrackCursor] = useState(false);
   const prevTrackRef = useRef('');
-  const fullName = 'Ryan Fahey';
-
-  useEffect(() => {
-    if (displayedName.length < fullName.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedName(fullName.slice(0, displayedName.length + 1));
-      }, 100);
-      return () => clearTimeout(timeout);
-    }
-  }, [displayedName]);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setShowCursor(false), 5000);
-    return () => clearTimeout(timeout);
-  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -172,10 +152,7 @@ const Portfolio: React.FC = () => {
     <TerminalWindow statusBar={statusBar}>
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-tui-bright">
-          {displayedName}
-          {showCursor && <span className="cursor-block">█</span>}
-        </h1>
+        <h1 className="text-2xl font-bold text-tui-bright">Ryan Fahey</h1>
         <p className="text-tui-dim mt-1 text-sm">software & infrastructure engineer</p>
       </div>
 
@@ -191,10 +168,6 @@ const Portfolio: React.FC = () => {
               <span className="text-tui-cyan font-bold">ryan.science</span>
             </div>
             <div className="text-tui-border select-none">─────────────────────</div>
-            <div>
-              <span className="text-tui-magenta">role </span>
-              <span className="text-tui-dim">~</span> software & infrastructure engineer
-            </div>
             <div>
               <span className="text-tui-magenta">edu  </span>
               <span className="text-tui-dim">~</span> northeastern university (cs, ai concentration)
@@ -224,7 +197,6 @@ const Portfolio: React.FC = () => {
               <span className="text-tui-yellow mt-0.5">▸</span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <img src={floweryLogo} alt="" className="w-4 h-4" />
                   <span className="text-tui-bright font-bold">Flowery</span>
                   <span className="text-tui-dim text-xs">·</span>
                   <a href="https://flowery.pw" target="_blank" rel="noopener noreferrer" className="text-tui-cyan hover:underline text-xs">
@@ -232,7 +204,7 @@ const Portfolio: React.FC = () => {
                   </a>
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  Unified TTS API aggregating 1,400+ voices from 16 backends. Custom SSML parser with real-time translation and audio mixing. 1M+ requests/month.
+                  Unified TTS API aggregating 1,400+ voices from 16 providers. Uses custom SSML parser with real-time translation and audio mixing. Processes 1M+ requests/month.
                 </p>
               </div>
             </div>
@@ -244,7 +216,6 @@ const Portfolio: React.FC = () => {
               <span className="text-tui-yellow mt-0.5">▸</span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <img src={demucsLogo} alt="" className="w-4 h-4" />
                   <span className="text-tui-bright font-bold whitespace-nowrap">demucs-next</span>
                   <span className="text-tui-dim text-xs">·</span>
                   <a href="https://demucs.app" target="_blank" rel="noopener noreferrer" className="text-tui-cyan hover:underline text-xs">
@@ -255,19 +226,24 @@ const Portfolio: React.FC = () => {
                   </a>
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  Modern fork of Meta's Demucs for audio stem separation. WebGPU in-browser inference. Python library with CLI, API, and REST support.
+                  Modern fork of Meta's audio source separation model. Faster, with modern dependencies, includes a Python library (CLI, API, and REST support) and a web app with WebGPU inference. 
                 </p>
               </div>
             </div>
           </div>
 
-          {/* LyricScribe */}
+        </div>
+      </div>
+
+      {/* Research */}
+      <div className="tui-panel">
+        <span className="tui-panel-title">research</span>
+        <div className="space-y-1">
           <div className="project-item">
             <div className="flex items-start gap-3">
               <span className="text-tui-yellow mt-0.5">▸</span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <Mic size={16} className="text-tui-dim" />
                   <span className="text-tui-bright font-bold">LyricScribe</span>
                   <span className="text-tui-dim text-xs">·</span>
                   <a href="https://github.com/Ryan5453/LyricScribe" target="_blank" rel="noopener noreferrer" className="text-tui-dim hover:text-tui-text text-xs">
@@ -275,7 +251,7 @@ const Portfolio: React.FC = () => {
                   </a>
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  Research on CTC vs. autoregressive ASR architectures and source separation artifacts. Fine-tuning Whisper, Canary, and Parakeet models.
+                  Research on CTC vs. autoregressive ASR architectures and source separation artifacts.
                 </p>
               </div>
             </div>
