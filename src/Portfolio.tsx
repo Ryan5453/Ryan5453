@@ -244,6 +244,24 @@ const Portfolio: React.FC = () => {
               <span className="text-tui-yellow mt-0.5">▸</span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
+                  <span className="text-tui-bright font-bold">CacheProbe</span>
+                  <span className="text-tui-dim text-xs">·</span>
+                  <a href="https://github.com/Ryan5453/cacheprobe" target="_blank" rel="noopener noreferrer" className="text-tui-dim hover:text-tui-text text-xs">
+                    github
+                  </a>
+                </div>
+                <p className="text-sm text-tui-dim mt-1 leading-relaxed">
+                  Auditing prompt cache isolation in API gateways. Demonstrates that shared organizational credentials in OpenRouter enable cross-user cache side-channel attacks across major LLM providers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="project-item">
+            <div className="flex items-start gap-3">
+              <span className="text-tui-yellow mt-0.5">▸</span>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
                   <span className="text-tui-bright font-bold">LyricScribe</span>
                   <span className="text-tui-dim text-xs">·</span>
                   <a href="https://github.com/Ryan5453/LyricScribe" target="_blank" rel="noopener noreferrer" className="text-tui-dim hover:text-tui-text text-xs">
