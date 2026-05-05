@@ -269,7 +269,7 @@ const Portfolio: React.FC = () => {
                   </a>
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  Research on CTC vs. autoregressive ASR architectures and source separation artifacts.
+                  Cross-architecture error analysis for automatic lyric transcription. Shows that Whisper, Canary, and Parakeet TDT produce distinct insertion/deletion failure modes at similar WERs, exposing what the single-number metric hides.
                 </p>
               </div>
             </div>
