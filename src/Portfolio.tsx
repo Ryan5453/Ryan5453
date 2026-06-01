@@ -170,7 +170,14 @@ const Portfolio: React.FC = () => {
             <div className="text-tui-border select-none">─────────────────────</div>
             <div>
               <span className="text-tui-magenta">edu  </span>
-              <span className="text-tui-dim">~</span> northeastern university (cs, ai concentration)
+              <span className="text-tui-dim">~</span> northeastern university (cs, ai concentration){' '}
+              <span className="text-tui-dim">· expected 2027</span>
+            </div>
+            <div>
+              <span className="text-tui-magenta">work </span>
+              <span className="text-tui-dim">~</span>{' '}
+              <a href="https://philips.com" className="text-tui-cyan hover:underline">philips</a>{' '}
+              (swe)
             </div>
             <div>
               <span className="text-tui-magenta">prev </span>
@@ -243,12 +250,21 @@ const Portfolio: React.FC = () => {
             <div className="flex items-start gap-3">
               <span className="text-tui-yellow mt-0.5">▸</span>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-tui-bright font-bold">CacheProbe</span>
                   <span className="text-tui-dim text-xs">·</span>
                   <a href="https://github.com/Ryan5453/cacheprobe" target="_blank" rel="noopener noreferrer" className="text-tui-dim hover:text-tui-text text-xs">
                     github
                   </a>
+                  <span className="text-tui-dim text-xs">·</span>
+                  <a href="https://arxiv.org/abs/2605.30613" target="_blank" rel="noopener noreferrer" className="text-tui-dim hover:text-tui-text text-xs">
+                    arxiv
+                  </a>
+                </div>
+                <div className="text-xs text-tui-yellow mt-1">
+                  presented @{' '}
+                  <a href="https://sites.google.com/view/sagai-2026" target="_blank" rel="noopener noreferrer" className="hover:underline">SAGAI 2026</a>{' '}
+                  (IEEE S&amp;P workshop)
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
                   Auditing prompt cache isolation in API gateways. Demonstrates that shared organizational credentials in OpenRouter enable cross-user cache side-channel attacks across major LLM providers.
