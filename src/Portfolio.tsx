@@ -180,7 +180,7 @@ const Portfolio: React.FC = () => {
               <span className="text-tui-magenta">work </span>
               <span className="text-tui-dim">~</span>{' '}
               <a href="https://philips.com" className="text-tui-cyan hover:underline">philips</a>{' '}
-              (swe)
+              (platform engineering)
             </div>
             <div>
               <span className="text-tui-magenta">prev </span>
