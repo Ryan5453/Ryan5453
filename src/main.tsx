@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Portfolio from './Portfolio'
 import Blog from './Blog'
+import Music from './Music'
 import InsecureByDesign from './components/InsecureByDesign'
 import './index.css'
 
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<Portfolio />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/lastfm" element={<Music />} />
         <Route path="/blog/insecure-by-design" element={<InsecureByDesign />} />
       </Routes>
     </BrowserRouter>

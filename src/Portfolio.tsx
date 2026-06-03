@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import TerminalWindow from './components/TerminalWindow';
 
 interface TrackImage {
@@ -25,6 +26,7 @@ interface Track {
 }
 
 const Portfolio: React.FC = () => {
+  const navigate = useNavigate();
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
   const [displayedTrackName, setDisplayedTrackName] = useState('');
   const [displayedTrackArtist, setDisplayedTrackArtist] = useState('');
@@ -42,13 +44,14 @@ const Portfolio: React.FC = () => {
         m: 'mailto:ryan@ryan.science',
         k: 'https://github.com/Ryan5453.gpg',
         b: '/blog',
+        s: '/lastfm',
       };
 
       const url = shortcuts[e.key];
       if (!url) return;
 
-      if (e.key === 'b') {
-        window.location.href = url;
+      if (url.startsWith('/')) {
+        navigate(url);
       } else {
         window.open(url, '_blank');
       }
@@ -56,7 +59,7 @@ const Portfolio: React.FC = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     const fetchTrack = async () => {
@@ -294,16 +297,16 @@ const Portfolio: React.FC = () => {
       </div>
 
       {/* Now Playing */}
-      <div className="tui-panel">
+      <Link to="/lastfm" className="tui-panel block group">
         <span className="tui-panel-title">now-playing</span>
         {currentTrack ? (
-          <a href={currentTrack.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+          <div className="flex items-center gap-4">
             <img
               src={currentTrack.image[3]['#text'] || ''}
               alt=""
-              className="w-12 h-12 border border-tui-border"
+              className="w-12 h-12 border border-tui-border group-hover:border-tui-cyan transition-colors"
             />
-            <div className="min-w-0">
+            <div className="min-w-0 flex-1">
               <div className="text-tui-green truncate">
                 {displayedTrackName}
                 {trackCursor && isTypingName && <span className="cursor-block">█</span>}
@@ -313,16 +316,22 @@ const Portfolio: React.FC = () => {
                 {trackCursor && !isTypingName && <span className="cursor-block">█</span>}
               </div>
             </div>
-          </a>
+            <span className="text-tui-dim text-xs whitespace-nowrap shrink-0 group-hover:text-tui-cyan transition-colors">
+              <span className="text-tui-yellow">[s]</span> stats →
+            </span>
+          </div>
         ) : (
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 border border-tui-border bg-tui-bg" />
-            <div className="text-tui-dim text-sm">
+            <div className="text-tui-dim text-sm flex-1">
               listening<span className="cursor-block">█</span>
             </div>
+            <span className="text-tui-dim text-xs whitespace-nowrap shrink-0 group-hover:text-tui-cyan transition-colors">
+              <span className="text-tui-yellow">[s]</span> stats →
+            </span>
           </div>
         )}
-      </div>
+      </Link>
     </TerminalWindow>
   );
 };
