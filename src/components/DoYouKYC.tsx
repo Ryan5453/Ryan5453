@@ -100,7 +100,7 @@ const DoYouKYC: React.FC = () => {
 
             <p>
                 Assume that the export ban to foreign nationals stays, and a private company attempts to verify which of their customers are U.S. persons.
-                Firstly, such company's API would likely need to be overhauled to allow for passthrough of each end users unique identity verification ID.
+                Firstly, such company's API would likely need to be overhauled to allow for passthrough of each end users' unique identity verification ID.
                 Secondly, the company would need to figure out how to verify documents to prove whether or not each user is a U.S. person.
                 While many documents exist to "prove" being a U.S. citizen, not many can be independently verified by a private company at scale without access to restricted government databases.
             </p>
