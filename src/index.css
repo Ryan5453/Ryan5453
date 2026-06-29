@@ -209,7 +209,7 @@ a {
 }
 
 .prose blockquote {
-  border-left: 3px solid var(--tui-magenta);
+  border-left: 3px solid var(--tui-yellow);
   padding-left: 1rem;
   font-style: italic;
   color: var(--tui-dim);
@@ -245,4 +245,104 @@ a {
 .prose td {
   border: 1px solid var(--tui-border);
   padding: 0.75rem 1rem;
+}
+
+/* ── Prose Reading (long-form blog post layout) ────────── */
+
+.prose-reading {
+  font-family: 'New York', 'Iowan Old Style', 'Charter', 'Source Serif 4', 'Source Serif Pro', Cambria, Georgia, serif;
+  color: #dcdcdc;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  font-weight: 450;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+.prose-reading p {
+  margin-bottom: 1.5rem;
+}
+
+.prose-reading h2 {
+  font-family: 'New York', 'Iowan Old Style', 'Charter', 'Source Serif 4', 'Source Serif Pro', Cambria, Georgia, serif;
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: var(--tui-bright);
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.prose-reading h3 {
+  font-family: 'New York', 'Iowan Old Style', 'Charter', 'Source Serif 4', 'Source Serif Pro', Cambria, Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--tui-bright);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-reading a {
+  color: var(--tui-cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(125, 207, 255, 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s;
+}
+
+.prose-reading a:hover {
+  text-decoration-color: var(--tui-cyan);
+}
+
+.prose-reading ul, .prose-reading ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose-reading ul { list-style-type: disc; }
+.prose-reading ol { list-style-type: decimal; }
+
+.prose-reading li {
+  margin-bottom: 0.5rem;
+}
+
+.prose-reading blockquote {
+  border-left: 2px solid var(--tui-border);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--tui-dim);
+  margin: 1.75rem 0;
+}
+
+.prose-reading code {
+  font-family: 'Departure Mono', ui-monospace, monospace;
+  background-color: var(--tui-bg-hl);
+  color: var(--tui-orange);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose-reading pre {
+  font-family: 'Departure Mono', ui-monospace, monospace;
+  background-color: var(--tui-bg);
+  border: 1px solid var(--tui-border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.prose-reading pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.prose-reading hr {
+  border: none;
+  border-top: 1px solid var(--tui-border);
+  margin: 2.5rem 0;
 }

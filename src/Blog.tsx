@@ -14,11 +14,17 @@ const Blog: React.FC = () => {
 
   const blogPosts: BlogPostMeta[] = [
     {
+      url: 'do-you-know-your-citizen',
+      title: 'Do you Know Your Citizen?',
+      date: '2026-06-28',
+      description: 'The US ordered frontier AI models to be walled off from foreign nationals, but no commercial system can verify citizenship, and the only gate that comes close would lock out the roughly half of US citizens who hold no passport.'
+    },
+    {
       url: 'insecure-by-design',
       title: 'Insecure by Design',
       date: '2025-12-02',
       description: 'The AAMVA\'s driver\'s license barcode standard is insecure by design and generates an estimated $5-15M annually in \'solutions\'.',
-    },
+    }
   ];
 
   useEffect(() => {

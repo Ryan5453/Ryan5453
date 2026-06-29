@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         mono: ['"Departure Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+        serif: ['"New York"', '"Iowan Old Style"', 'Charter', '"Source Serif 4"', '"Source Serif Pro"', 'Cambria', 'Georgia', 'serif'],
       },
       colors: {
         tui: {

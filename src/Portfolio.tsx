@@ -156,7 +156,7 @@ const Portfolio: React.FC = () => {
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-tui-bright">Ryan Fahey</h1>
-        <p className="text-tui-dim mt-1 text-sm">software & infrastructure engineer</p>
+        <p className="text-tui-dim mt-1 text-sm">software engineer ~ ml, infra & security</p>
       </div>
 
       {/* About — neofetch style */}
@@ -214,7 +214,7 @@ const Portfolio: React.FC = () => {
                   </a>
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  Unified TTS API aggregating 1,400+ voices from 16 providers. Uses custom SSML parser with real-time translation and audio mixing. Processes 1M+ requests/month.
+                  Unified TTS API aggregating 1,400+ voices from 16 providers. Uses custom SSML parser with real-time translation and audio mixing. Processes 1M+ requests/week.
                 </p>
               </div>
             </div>
@@ -236,7 +236,7 @@ const Portfolio: React.FC = () => {
                   </a>
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  Modern fork of Meta's audio source separation model. Faster, with modern dependencies, includes a Python library (CLI, API, and REST support) and a web app with WebGPU inference. 
+                  [pre-release] Modern fork of Meta's audio source separation model. Faster, with modern dependencies, includes a Python library (CLI, API, and REST support) and a web app with WebGPU inference. 
                 </p>
               </div>
             </div>
