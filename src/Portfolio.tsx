@@ -236,8 +236,7 @@ const Portfolio: React.FC = () => {
                   </a>
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  [pre-release] Modern fork of Meta's audio source separation model. Faster, with modern dependencies, includes a Python library (CLI, API, and REST support) and a web app with WebGPU inference. 
-                </p>
+                Fork of Demucs, Meta's audio source separation model, rebuilt for modern Python and PyTorch. Up to 5x faster than upstream at equal quality. Ships a CLI, Python API, and Replicate/Cog REST deployment, plus an npm package and web app for in-browser WebGPU inference.                </p>
               </div>
             </div>
           </div>
