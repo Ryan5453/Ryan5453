@@ -220,23 +220,23 @@ const Portfolio: React.FC = () => {
             </div>
           </div>
 
-          {/* demucs-next */}
+          {/* Unblend */}
           <div className="project-item">
             <div className="flex items-start gap-3">
               <span className="text-tui-yellow mt-0.5">▸</span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="text-tui-bright font-bold whitespace-nowrap">demucs-next</span>
+                  <span className="text-tui-bright font-bold whitespace-nowrap">Unblend</span>
                   <span className="text-tui-dim text-xs">·</span>
-                  <a href="https://demucs.app" target="_blank" rel="noopener noreferrer" className="text-tui-cyan hover:underline text-xs">
-                    demucs.app
+                  <a href="https://unblend.dev" target="_blank" rel="noopener noreferrer" className="text-tui-cyan hover:underline text-xs">
+                    unblend.dev
                   </a>
-                  <a href="https://github.com/Ryan5453/demucs-next" target="_blank" rel="noopener noreferrer" className="text-tui-dim hover:text-tui-text text-xs">
+                  <a href="https://github.com/Ryan5453/unblend" target="_blank" rel="noopener noreferrer" className="text-tui-dim hover:text-tui-text text-xs">
                     github
                   </a>
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                Fork of Demucs, Meta's audio source separation model, rebuilt for modern Python and PyTorch. Up to 5x faster than upstream at equal quality. Ships a CLI, Python API, and Replicate/Cog REST deployment, plus an npm package and web app for in-browser WebGPU inference.                </p>
+                  Music source separation library with one Separator API over Demucs, BS-RoFormer, and Mel-Band RoFormer. Around 6x faster than upstream Demucs at equal quality. Ships a CLI, Python API, Cog/Replicate deployment, and an npm package for in-browser WebGPU inference.                </p>
               </div>
             </div>
           </div>
@@ -286,8 +286,9 @@ const Portfolio: React.FC = () => {
                     github
                   </a>
                 </div>
+                <div className="text-xs text-tui-yellow mt-1">research in progress</div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  Cross-architecture error analysis for automatic lyric transcription. Shows that Whisper, Canary, and Parakeet TDT produce distinct insertion/deletion failure modes at similar WERs, exposing what the single-number metric hides.
+                  Research stack for automatic lyric transcription: source separation, VAD, long-form inference, finetuning, and evaluation across Whisper, Canary, and Parakeet TDT. Finetunes all three architectures on ~1,900 hours of music, with preliminary results ahead of the best published open-source Jam-ALT result.
                 </p>
               </div>
             </div>
