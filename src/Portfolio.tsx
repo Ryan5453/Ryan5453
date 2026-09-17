@@ -214,7 +214,7 @@ const Portfolio: React.FC = () => {
                   </a>
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  Unified TTS API aggregating 1,400+ voices from 16 providers. Uses custom SSML parser with real-time translation and audio mixing. Processes 1M+ requests/week.
+                  Unified TTS API aggregating 1,400+ voices from 16 providers. Uses custom SSML parser with real-time translation and audio mixing. Processes 3M+ requests/month.
                 </p>
               </div>
             </div>
@@ -236,7 +236,7 @@ const Portfolio: React.FC = () => {
                   </a>
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  Music source separation library with one Separator API over Demucs, BS-RoFormer, and Mel-Band RoFormer. Around 6x faster than upstream Demucs at equal quality. Ships a CLI, Python API, Cog/Replicate deployment, and an npm package for in-browser WebGPU inference.                </p>
+                  Music source separation inference library with one Separator API over HTDemucs, BS-RoFormer, Mel-Band RoFormer, and SCNet. Around 6x faster than upstream Demucs at equal quality. Ships a CLI, Python API, Cog/Replicate deployment, and an npm package for in-browser WebGPU inference.                </p>
               </div>
             </div>
           </div>
@@ -269,7 +269,7 @@ const Portfolio: React.FC = () => {
                   (IEEE S&amp;P workshop)
                 </div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  Auditing prompt cache isolation in API gateways. Demonstrates that shared organizational credentials in OpenRouter enable cross-user cache side-channel attacks across major LLM providers.
+                  Auditing prompt cache isolation in API gateways. Shows that OpenRouter's shared organizational credentials defeat providers' per-account cache isolation, reaching 100% cross-user cache hits on Groq, detected via both TTFT timing and cached-token metadata. BYOK credentials restore isolation, pinning the cause to the shared org key.
                 </p>
               </div>
             </div>
@@ -282,13 +282,13 @@ const Portfolio: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <span className="text-tui-bright font-bold">LyricScribe</span>
                   <span className="text-tui-dim text-xs">·</span>
-                  <a href="https://github.com/Ryan5453/LyricScribe" target="_blank" rel="noopener noreferrer" className="text-tui-dim hover:text-tui-text text-xs">
+                  <a href="https://github.com/Ryan5453/lyricscribe" target="_blank" rel="noopener noreferrer" className="text-tui-dim hover:text-tui-text text-xs">
                     github
                   </a>
                 </div>
                 <div className="text-xs text-tui-yellow mt-1">research in progress</div>
                 <p className="text-sm text-tui-dim mt-1 leading-relaxed">
-                  Research stack for automatic lyric transcription: source separation, VAD, long-form inference, finetuning, and evaluation across Whisper, Canary, and Parakeet TDT. Finetunes all three architectures on ~1,900 hours of music, with preliminary results ahead of the best published open-source Jam-ALT result.
+                  Research stack for automatic lyric transcription: source separation, VAD, long-form inference, finetuning, and evaluation across Whisper, Qwen3, Canary, and Parakeet TDT. Finetunes all four architectures on ~1,900 hours of music; an eight-system ROVER ensemble reaches 12.6% WER on Jam-ALT, ahead of every published result including commercial systems.
                 </p>
               </div>
             </div>

@@ -1,26 +1,31 @@
 import React from 'react';
-import BlogPost from './BlogPost';
+import BlogPost, { PostMeta } from '../components/BlogPost';
 import vaDlBack from '../assets/va-dl-back.png';
+
+export const meta: PostMeta = {
+  slug: 'insecure-by-design',
+  title: 'Insecure by Design',
+  date: '2025-12-02',
+  description: 'The AAMVA\'s driver\'s license barcode standard is insecure by design, and the same organization sells the cure.',
+};
 
 const InsecureByDesign: React.FC = () => {
   return (
-    <BlogPost
-      title="Insecure by Design"
-      date="2025-12-02"
-    >
+    <BlogPost meta={meta}>
       <p>
         Fraudulent IDs have become increasingly prevalent across the United States, particularly on college campuses.
-        The ease of acquisition has grown dramatically in recent years, they can now be purchased openly on the open internet and paid for using credit cards.
+        The ease of acquisition has grown dramatically in recent years, they can now be purchased openly on the internet and paid for using credit cards.
         This accessibility has spawned an entire verification industry, with companies like <a href="https://www.intellicheck.com" className="underline hover:no-underline">IntelliCheck</a>, <a href="https://www.idsentry.com" className="underline hover:no-underline">IDSentry</a>, and <a href="https://www.idscan.net" className="underline hover:no-underline">VeriScan</a> offering specialized detection services.
       </p>
 
       <p>
-        The American Association of Motor Vehicle Administrators (AAMVA) is the non-profit trade association responsible for establishing driver's license standards throughout the United States.
+        The American Association of Motor Vehicle Administrators (AAMVA) is the non-governmental, non-profit trade association responsible for establishing driver's license standards throughout the United States.
         All U.S. states and Canadian provinces issue driver's licenses that comply with AAMVA standards, making the organization's security decisions critically important.
       </p>
 
       <p>
-        The fundamental problem is that the AAMVA's barcode standard is insecure by design, and the AAMVA has financial incentives to keep it that way.
+        The fundamental problem is that the AAMVA's barcode standard is insecure by design, and the AAMVA sells the cure.
+        The same organization that maintains the insecure standard operates the paid service that mitigates it.
       </p>
 
       <hr />
@@ -166,7 +171,7 @@ DAQ T16700285
       <p>
         States such as New York and Virginia have implemented proprietary cryptographic security fields to their PDF417 barcodes.
         Their barcodes are still fully compliant with the AAMVA standard as they store the data inside jurisdiction-specific fields.
-        However, these cryptographic security fields are not part of the AAMVA standard and are not publically documented.
+        However, these cryptographic security fields are not part of the AAMVA standard and are not publicly documented.
         To the majority of people, these fields are entirely useless as there is no way to validate them.
       </p>
 
@@ -179,7 +184,7 @@ DAQ T16700285
       <p>
         However, DLDV is very much not an easy-to-use self-serve API.
         The AAMVA must approve your business/organization to use the service.
-        In fact, the AAMVA is so secretative about the service that they require you to sign a <b>non-disclosure agreement</b> before providing any documentation.
+        In fact, the AAMVA is so secretive about the service that they require you to sign a <b>non-disclosure agreement</b> before providing any documentation.
       </p>
 
       <p>
@@ -196,12 +201,13 @@ DAQ T16700285
       <p>
         Rather than using DMVCheck for every single ID scan, TokenWorks opts to use IDSentry's Barcode Detective service.
         This service is much less accurate than using DLDV, but it allows for TokenWorks to advertise an "unlimited" amount of scans that can detect fraudulent IDs.
-        IDSentry can catch approximately 30% of fraudulent IDs from one of the most common ID vendors<sup><a href="#ref6" className="underline">6</a></sup>, while DLDV can catch approximately 86% of fraudulent IDs<sup><a href="#ref7" className="underline">7</a></sup>, a very significant difference.
+        IDSentry's Barcode Detective only detects fakes from one of the most common ID vendors in roughly 30% of states<sup><a href="#ref6" className="underline">6</a></sup>, while DLDV participation covers approximately 86% of states<sup><a href="#ref7" className="underline">7</a></sup>, a very significant difference in coverage.
       </p>
 
       <p>
         The cost to businesses adds up quickly: a busy bar scanning 200 IDs per night at $2 per verification would pay over $140,000 annually for protection that cryptographic signatures could provide for free.
-        AAMVA does not disclose DLDV-specific revenue, but estimates suggest the service generates $5-15 million annually<sup><a href="#note1" className="underline">*</a></sup>, a substantial portion of their operating budget.
+        AAMVA does not disclose how much DLDV earns, and their public filings don't break it out<sup><a href="#note1" className="underline">*</a></sup>.
+        But every one of those paid verifications exists to answer a question that a signed barcode would answer for free: is this barcode data genuine?
       </p>
 
       <hr></hr>
@@ -352,7 +358,7 @@ DAQ T16700285
 
       <p className="mb-4 leading-relaxed">
         There are no technical barriers to enabling secure barcodes as the PKI infrastructure is already being built anyway for mDL.
-        What's missing is the mandate, and the willingness to forgo an estimated $5-15 million in annual DLDV revenue.
+        What's missing is the mandate, and the mandate would have to come from an organization whose own verification service exists because the mandate doesn't.
       </p>
 
       <p>
@@ -362,13 +368,13 @@ DAQ T16700285
 
       <p>
         I don't expect mDLs to fully replace physical IDs any time soon.
-        Rollouts over the past few years has been incredibly slow, and I expect most Americans to continue carrying physical licenses for years, if not decades.
+        Rollouts over the past few years have been incredibly slow, and I expect most Americans to continue carrying physical licenses for years, if not decades.
         Companies like IntelliCheck and IDSentry provide genuine value in the current landscape.
         But their entire market exists because of a policy choice, not a technical limitation.
       </p>
 
       <p>
-        The AAMVA's issue is that if they mandaded signed/secure barcodes, like they already do for mDLs, their entire DLDV business model would evaporate.
+        The AAMVA's issue is that if they mandated signed/secure barcodes, like they already do for mDLs, their entire DLDV business model would evaporate.
         Scanners would be able to verify authenticity mathematically, allowing for no per-scan fees and offline validation.
       </p>
 
@@ -381,12 +387,11 @@ DAQ T16700285
         <h2 className="text-xl font-bold mb-4" style={{ color: 'var(--tui-bright)' }}>Notes</h2>
         <div className="text-sm" style={{ color: 'var(--tui-dim)' }}>
           <p id="note1" className="mb-4">
-            <sup className="font-semibold">*</sup> <span className="font-semibold">Revenue Estimate:</span>{' '}
-            AAMVA does not disclose DLDV-specific revenue. Their Form 990 filings show $42M in program services revenue (FY2023), but bundle all verification systems together.<sup><a href="#ref8" className="underline">8</a></sup>{' '}
+            <sup className="font-semibold">*</sup> <span className="font-semibold">DLDV Revenue:</span>{' '}
+            AAMVA's Form 990 filings show $42M in program services revenue (FY2023), but bundle all verification systems together.<sup><a href="#ref8" className="underline">8</a></sup>{' '}
             The NMVTIS Annual Report shows that system generated $9.6M,<sup><a href="#ref9" className="underline">9</a></sup>{' '}
-            leaving ~$32M for DLDV, CDLIS, S2S, and smaller programs.
-            DLDV is the only one that operates as a commercial fee-per-query service without federal funding.
-            There is still a level of uncertainty about DLDV's share of that revenue.
+            leaving ~$32M spread across DLDV, CDLIS, S2S, and smaller programs.
+            The filings don't break DLDV out any further, but it is the only one of those programs that operates as a commercial fee-per-query service without federal funding.
           </p>
         </div>
       </div>

@@ -4,12 +4,15 @@ interface TerminalWindowProps {
   title?: string;
   children: ReactNode;
   statusBar?: ReactNode;
+  /** Tailwind max-width for the content column. Widened for pages built around a figure. */
+  maxWidth?: string;
 }
 
 const TerminalWindow: React.FC<TerminalWindowProps> = ({
   title = 'ryan@ryan.science: ~',
   children,
   statusBar,
+  maxWidth = 'max-w-3xl',
 }) => {
   return (
     <div className="min-h-screen flex flex-col bg-tui-bg-dark">
@@ -22,7 +25,7 @@ const TerminalWindow: React.FC<TerminalWindowProps> = ({
 
       {/* Content */}
       <div className="flex-1">
-        <div className="max-w-3xl mx-auto px-6 py-8">
+        <div className={`${maxWidth} mx-auto px-6 py-8`}>
           {children}
         </div>
       </div>

@@ -178,7 +178,7 @@ const Music: React.FC = () => {
         <div className="min-h-[40vh] flex items-center justify-center">
           <div className="w-full max-w-md">
             <div className="text-tui-dim text-sm mb-2">
-              <span className="text-tui-green">$</span> lastfm-stats --user {USER} --period 7day
+              <span className="text-tui-green">$</span> lastfm stats --user {USER} --period 7day
             </div>
             <div className="text-tui-text">loading stats...</div>
             <div className="mt-1 whitespace-nowrap">

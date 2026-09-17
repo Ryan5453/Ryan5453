@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BlogPost from './BlogPost';
+import BlogPost, { PostMeta } from '../components/BlogPost';
+
+export const meta: PostMeta = {
+    slug: 'do-you-know-your-citizen',
+    title: 'Do you Know Your Citizen?',
+    date: '2026-06-28',
+    description: 'The US ordered frontier AI walled off from foreign nationals, but verifying citizenship would lock out half of US citizens.',
+};
 
 const DoYouKYC: React.FC = () => {
     return (
-        <BlogPost
-            title="Do you Know Your Citizen?"
-            date="2026-06-28"
-            credits="with help from Claude 4.8 Opus and Claude 3 Opus"
-        >
+        <BlogPost meta={meta}>
 
             <p>
                 Around two weeks ago (June 12th), the U.S. government issued a directive for Anthropic to suspend access to both Claude 5 Fable and Claude 5 Mythos for all foreign nationals.
@@ -16,9 +19,6 @@ const DoYouKYC: React.FC = () => {
                 Then, on June 26th OpenAI announced their GPT-5.6 series of models, albeit in a limited preview form due to a request from the U.S. government.
                 Later that day similar news followed for Anthropic, who received notice that their most capable model, Claude 5 Mythos, could be "redeployed to a small group of cyber defenders and infrastructure providers."
             </p>
-
-
-            <h2 className="text-tui-yellow mt-8 mb-2">Why now?</h2>
 
             <p>
                 Two days before Anthropic's export ban, Dario Amodei, CEO of Anthropic, published his short essay "Policy on the AI Exponential".
@@ -32,8 +32,6 @@ const DoYouKYC: React.FC = () => {
                 The public has little visibility into the decision-making process or criteria behind these restrictions.
                 Without clear insight into whether they were grounded in rigorous technical standards or political considerations, it's difficult to have confidence in the government's approach.
             </p>
-
-            <h2 className="text-tui-yellow mt-8 mb-2">The real concern</h2>
 
             <p>
                 The government's true worry was a reported jailbreak technique that could circumvent Fable's (Mythos' "safer" sibling) safeguards to unlock offensive cybersecurity abilities.
@@ -51,46 +49,7 @@ const DoYouKYC: React.FC = () => {
                 The only way to guarantee no foreign national slips through is to block everyone, which is exactly what Anthropic did.
             </p>
 
-
-            <h2 className="text-tui-yellow mt-8 mb-2">Passport holders</h2>
-
-            <div className="float-right ml-8 mb-4 text-tui-yellow" aria-hidden="true">
-                <svg
-                    viewBox="0 0 220 300"
-                    width="200"
-                    height="273"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="square"
-                    strokeLinejoin="miter"
-                >
-                    <rect x="6" y="6" width="208" height="288" rx="3" strokeWidth="1.5" />
-                    <rect x="14" y="14" width="192" height="272" rx="2" strokeWidth="0.5" />
-
-                    <text x="110" y="54" textAnchor="middle" fill="currentColor" stroke="none" fontSize="11" letterSpacing="2" fontFamily="inherit">UNITED STATES</text>
-                    <text x="110" y="70" textAnchor="middle" fill="currentColor" stroke="none" fontSize="11" letterSpacing="2" fontFamily="inherit">OF AMERICA</text>
-
-                    <circle cx="110" cy="148" r="42" strokeWidth="1" />
-                    <circle cx="110" cy="148" r="36" strokeWidth="0.5" />
-                    <polygon
-                        points="110,124 115.3,140.4 132.6,140.4 118.6,150.5 124,166.9 110,156.8 96,166.9 101.4,150.5 87.4,140.4 104.7,140.4"
-                        strokeWidth="0.8"
-                    />
-
-                    <text x="110" y="222" textAnchor="middle" fill="currentColor" stroke="none" fontSize="16" letterSpacing="5" fontFamily="inherit">PASSPORT</text>
-
-                    <rect x="92" y="246" width="36" height="26" rx="1" strokeWidth="0.8" />
-                    <rect x="100" y="252" width="20" height="14" strokeWidth="0.5" />
-                    <line x1="92" y1="253" x2="100" y2="253" strokeWidth="0.5" />
-                    <line x1="92" y1="259" x2="100" y2="259" strokeWidth="0.5" />
-                    <line x1="92" y1="265" x2="100" y2="265" strokeWidth="0.5" />
-                    <line x1="120" y1="253" x2="128" y2="253" strokeWidth="0.5" />
-                    <line x1="120" y1="259" x2="128" y2="259" strokeWidth="0.5" />
-                    <line x1="120" y1="265" x2="128" y2="265" strokeWidth="0.5" />
-                </svg>
-            </div>
-
-
+            
             <p>
                 Export law uses the term "U.S. person," which is a broader term than just a "U.S. citizen."
                 A U.S. person is a citizen, lawful permanent resident (green card holder), or protected individual (person granted asylum or refugee status).
@@ -134,9 +93,6 @@ const DoYouKYC: React.FC = () => {
                 All other documents are either unverifiable paper or database entries inaccessible to private entities.
             </p>
 
-
-            <h2 className="text-tui-yellow mt-8 mb-2">Almost</h2>
-
             <p>
                 Roughly 50% of Americans have a passport which would leave nearly half the country locked out of a system that requires a passport to access<sup><a href="#ref-passports" className="underline">5</a></sup>.
                 You may ask about three other documents which were left out: a standard driver's license, a REAL ID, or a Social Security card.
@@ -155,9 +111,6 @@ const DoYouKYC: React.FC = () => {
                 It contains no signed identity data and has been shown to be vulnerable to cloning attacks<sup><a href="#ref-rfid" className="underline">8</a></sup>.
                 Among all documents that prove U.S. citizenship, only the passport book carries a chip that can be independently verified by private entities.
             </p>
-
-
-            <h2 className="text-tui-yellow mt-8 mb-2">What the passport chip actually does</h2>
 
             <p>
                 With every revision, the passport books physically get more secure, tamperproof, and harder to replicate.
@@ -192,8 +145,6 @@ const DoYouKYC: React.FC = () => {
                 The entire process is powered wirelessly by the reader, no batteries required.
                 Pretty cool if you ask me.
             </p>
-
-            <h2 className="text-tui-yellow mt-8 mb-2">Eliminating fraud is impossible</h2>
 
             <p>
                 Eliminating fraud in a system like this is simply not possible, regardless of chip design, camera capabilities, or any level of engineering sophistication.
@@ -237,9 +188,6 @@ const DoYouKYC: React.FC = () => {
                 Certainty, in this context, is simply unattainable.
             </p>
 
-
-            <h2 className="text-tui-yellow mt-8 mb-2">America</h2>
-
             <p>
                 While writing this I found out an interesting fact: the United States does not have any sort of centralized citizenship registry, a deliberate policy choice sustained for decades on civil liberties grounds, which means that absent a universal, queryable database there is no straightforward way to definitively answer the question "Is this individual a U.S. citizen?"
                 The contrast with France, home to Mistral AI, is instructive but needs care, because France's passport carries the same ICAO 9303 chip as the U.S. one, so the baseline is identical.
@@ -251,8 +199,7 @@ const DoYouKYC: React.FC = () => {
                 Even France's solution is narrower than it appears, since France Identité is restricted to nationals and a lawful resident on a titre de séjour cannot use it, so it answers the citizen question rather than the broader person question that the export directive actually poses.
             </p>
 
-
-            <h2 className="text-tui-yellow mt-8 mb-2">Persona</h2><p>
+            <p>
                 Anthropic already operates an identity verification pipeline, which serves as a useful case study for the capabilities and limitations of verification systems.
                 For basic age verification, Anthropic utilizes a vendor called Yoti, which returns only a binary pass/fail result without ever sharing the underlying document with Anthropic.
                 For comprehensive identity verification, Anthropic employs Persona, which matches a government-issued ID to a live selfie.
@@ -290,9 +237,6 @@ const DoYouKYC: React.FC = () => {
                 The approach presumes a level of control that the broader field is progressively eroding.
             </p>
 
-
-            <h2 className="text-tui-yellow mt-8 mb-2">100</h2>
-
             <p>
                 When confronted with the question of who could lawfully be served, the government and Anthropic did not implement per-user citizenship verification.
                 Instead, the Trump administration hand-selected approximately one hundred trusted institutions and explicitly restricted access to that list, within the United States.
@@ -316,7 +260,6 @@ const DoYouKYC: React.FC = () => {
                 The verification challenge, ultimately, was not truly a verification problem at all.
                 It was a question the United States had deliberately made itself unable to answer, asked through a mechanism that could only pose it in the one format the country was least prepared to handle, via a process opaque enough to leave us still uncertain whether the primary motivation was technological risk or political considerations.
             </p>
-
 
             <div className="mt-8 pt-4" style={{ borderTop: '1px solid var(--tui-border)' }}>
                 <h2 className="text-xl font-bold mb-4" style={{ color: 'var(--tui-bright)' }}>References</h2>
@@ -389,7 +332,6 @@ const DoYouKYC: React.FC = () => {
                     </li>
                 </ol>
             </div>
-
 
         </BlogPost>
     );

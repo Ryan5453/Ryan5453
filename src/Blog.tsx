@@ -1,31 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import TerminalWindow from './components/TerminalWindow';
-
-interface BlogPostMeta {
-  url: string;
-  title: string;
-  date: string;
-  description: string;
-}
+import { posts } from './posts';
 
 const Blog: React.FC = () => {
   const navigate = useNavigate();
 
-  const blogPosts: BlogPostMeta[] = [
-    {
-      url: 'do-you-know-your-citizen',
-      title: 'Do you Know Your Citizen?',
-      date: '2026-06-28',
-      description: 'The US ordered frontier AI models to be walled off from foreign nationals, but no commercial system can verify citizenship, and the only gate that comes close would lock out the roughly half of US citizens who hold no passport.'
-    },
-    {
-      url: 'insecure-by-design',
-      title: 'Insecure by Design',
-      date: '2025-12-02',
-      description: 'The AAMVA\'s driver\'s license barcode standard is insecure by design and generates an estimated $5-15M annually in \'solutions\'.',
-    }
-  ];
+  const blogPosts = posts.map((p) => p.meta);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -48,8 +29,7 @@ const Blog: React.FC = () => {
   return (
     <TerminalWindow title="ryan@ryan.science: ~/blog" statusBar={statusBar}>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-tui-bright">Blog</h1>
-        <p className="text-tui-dim mt-1 text-sm">just some things that interest me</p>
+        <h1 className="text-2xl font-bold text-tui-bright">Ryan's Blog</h1>
       </div>
 
       <div className="tui-panel">
@@ -60,8 +40,8 @@ const Blog: React.FC = () => {
           <div className="space-y-1">
             {blogPosts.map((post) => (
               <Link
-                key={post.url}
-                to={`/blog/${post.url}`}
+                key={post.slug}
+                to={`/blog/${post.slug}`}
                 className="project-item block"
               >
                 <div className="flex items-start gap-3">

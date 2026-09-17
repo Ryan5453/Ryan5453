@@ -346,3 +346,21 @@ a {
   border-top: 1px solid var(--tui-border);
   margin: 2.5rem 0;
 }
+
+/* ── TUI Button ────────────────────────────────────────── */
+
+.tui-button {
+  font-family: 'Departure Mono', ui-monospace, monospace;
+  font-size: 0.8125rem;
+  color: var(--tui-cyan);
+  background: var(--tui-bg-dark);
+  border: 1px solid var(--tui-border);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.tui-button:hover {
+  border-color: var(--tui-cyan);
+  color: var(--tui-bright);
+}
