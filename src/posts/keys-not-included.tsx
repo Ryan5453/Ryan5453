@@ -116,7 +116,7 @@ const KeysNotIncluded: React.FC = () => {
             <p>
                 These blobs come out to 70, 71, or 72 bytes depending on the card, which is exactly what ECDSA produces, because <i>r</i> and <i>s</i> are effectively random integers and DER drops or adds a leading byte depending on whether the high bit of each happens to be set.
                 A fixed-length hash or a counter would not vary like that, but a pair of random 256-bit integers does.
-                Across three real New York cards, one North Carolina card, and six Virginia samples, every single one fit this structure.
+                Across three real New York cards, two North Carolina cards, and six Virginia samples, every single one fit this structure.
             </p>
 
 
@@ -147,31 +147,33 @@ const KeysNotIncluded: React.FC = () => {
             </hr>
 
             <p>
-                Three real New York cards produce one key that all three pairs agree on. Six Virginia samples produce one key that all fifteen pairs agree on.
+                Three real New York cards produce one key that all three pairs agree on. Six Virginia samples produce one key that all fifteen pairs agree on. Two North Carolina cards produce one key that both agree on, which is the minimum it takes.
             </p>
 
             <p>
-                I only have one North Carolina sample, and it takes two to pin down a key.
-                If you have two from a state I don't cover (NC, SC, WI), you can <Link to="/blog/keys-not-included/recover" className="underline">recover its key yourself here</Link>.
+                That leaves South Carolina and Wisconsin. If you have two cards from either, you can <Link to="/blog/keys-not-included/recover" className="underline">recover its key yourself here</Link>.
             </p>
 
             <Listing title="recovered public keys">
-{`New York   IIN 636001   field ZNB
+{`New York         IIN 636001   field ZNB
   02851d63a281796be0ca11189f03028abf80e032838f83215889b9e708eac16482
 
-Virginia   IIN 636000   field ZVA
-  02d0f2823d63c854566c5da2cb07e114dbad16f874c2422f74806fe3e2f4775f1d`}
+Virginia         IIN 636000   field ZVA
+  02d0f2823d63c854566c5da2cb07e114dbad16f874c2422f74806fe3e2f4775f1d
+
+North Carolina   IIN 636004   field ZND
+  0398956191b3fd2704362fdd8500dc0d4419c9379c5187cefd223dd4ee566da9e8`}
             </Listing>
 
             <p>
-                Both are P-256 public keys in compressed form, and every card I have access to verifies against them.
+                All three are P-256 public keys in compressed form, and every card I have access to verifies against them.
                 Change even a single byte of a surname and it is instantly able to be detected as inauthentic.
                 These are public keys, which are meant to be published - recovering one lets anyone check a signature, not forge one.
             </p>
 
             <p>
-                I built a little demo to check the signatures across California, New York, and Virginia: take a picture of the barcode and check it <Link to="/blog/keys-not-included/verify" className="underline">here</Link>.
-                It decodes the PDF417 barcode, parses the AAMVA format for any jurisdiction, and verifies the signature for the three that have one.
+                I built a little demo to check the signatures across California, New York, Virginia, and North Carolina: take a picture of the barcode and check it <Link to="/blog/keys-not-included/verify" className="underline">here</Link>.
+                It decodes the PDF417 barcode, parses the AAMVA format for any jurisdiction, and verifies the signature for the four I have a key for.
                 Everything runs in your browser so I will never see any image or extracted data from your ID.
                 The keys are per-jurisdiction and the construction is shared across the vendor's states. Virginia's signatures fail under New York's key and vice versa, which is the right design, because it means one state's compromise doesn't take the others with it.
                 A valid signature only proves the state issued that data. The photo is not signed (not included in the barcode at all), so a genuine barcode copied onto a counterfeit still passes.

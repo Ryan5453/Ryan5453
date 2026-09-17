@@ -3,7 +3,7 @@
  * field that has to survive a text-only barcode.
  *
  * Five characters carry four bytes, so a 72-byte ECDSA signature lands in exactly 90
- * characters — which is the length the New York and Virginia fields actually are.
+ * characters — which is the length the CBN signature fields actually are.
  * A trailing partial group is padded with 'u' and the extra bytes dropped.
  */
 

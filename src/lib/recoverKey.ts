@@ -9,7 +9,7 @@
  *
  * Two candidates is not an answer. Two cards signed by the same key give two
  * candidate pairs whose intersection is, in practice, exactly one point. That is how
- * the New York and Virginia keys in verifyId.ts were found.
+ * every key in verifyId.ts was found.
  *
  * Everything below is plain affine arithmetic over P-256 with BigInt. It is not fast
  * and does not need to be: a handful of scalar multiplications per card, once.

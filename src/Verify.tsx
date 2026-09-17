@@ -17,9 +17,9 @@ import { scan, ScanError, warmUp } from './lib/scanClient';
  * whole chain visible: decode the barcode, parse the fields, check the signature.
  *
  * Two different things happen. Parsing works for every AAMVA jurisdiction, because
- * the format is a published standard. Verification works for three — New York and
- * Virginia, whose keys had to be recovered rather than read, and California, which
- * publishes everything needed.
+ * the format is a published standard. Verification works for four — New York,
+ * Virginia and North Carolina, whose keys had to be recovered rather than read, and
+ * California, which publishes everything needed.
  *
  * Everywhere else splits in two, and the split is read off the card rather than
  * assumed. Some jurisdictions sign and publish nothing: the signature is in the
@@ -115,12 +115,10 @@ const Verify: React.FC = () => {
   return (
     <TerminalWindow title="ryan@ryan.science: ~/blog/keys-not-included/verify" statusBar={statusBar}>
       <div className="font-mono text-sm">
-        <h1 className="text-tui-bright text-lg mb-2">License barcode checker</h1>
+        <h1 className="text-tui-bright text-lg mb-2">ID signature validator</h1>
         <p className="text-tui-dim mb-6 leading-relaxed max-w-2xl">
-          Photograph the barcode on the <em>back</em> of a driver's license. Every jurisdiction is
-          parsed; only New York, Virginia and California can be <em>verified</em>; for two of
-          them the keys had to be recovered rather than published. The image is decoded on your
-          device and never uploaded.
+        This tool can parse data from any U.S. or Canadian jurisdiction, but only New York, Virginia, North Carolina and California can be cryptographically verified.
+            Your photos stay local and no data is uploaded; you can audit the source code <Link className="underline" to="https://github.com/Ryan5453/Ryan5453">here</Link>.
         </p>
 
         <div

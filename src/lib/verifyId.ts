@@ -54,6 +54,13 @@ export const ISSUERS: Issuer[] = [
     vendor: 'Canadian Bank Note',
     publicKeys: ['02d0f2823d63c854566c5da2cb07e114dbad16f874c2422f74806fe3e2f4775f1d'],
   },
+  {
+    iin: '636004',
+    jurisdiction: 'North Carolina',
+    field: 'ZND',
+    vendor: 'Canadian Bank Note',
+    publicKeys: ['0398956191b3fd2704362fdd8500dc0d4419c9379c5187cefd223dd4ee566da9e8'],
+  },
 ];
 
 export type Verdict =
@@ -76,8 +83,9 @@ export type Verdict =
  * ECDSA DER sequence is a signature whichever state it came from. That is evidence
  * read off the card, which is the point: this page used to tell everyone outside New
  * York, Virginia and California that their jurisdiction "publishes no barcode
- * signature". That is false. North Carolina, South Carolina and Wisconsin all sign.
- * What none of them publishes is the key.
+ * signature". That is false. North Carolina, South Carolina and Wisconsin all sign;
+ * North Carolina's key has since been recovered, and South Carolina and Wisconsin
+ * remain signed with a key nobody outside the vendor has.
  */
 export function findSignature(card: Card): { field: string; bytes: number } | null {
   for (const sub of card.subfiles) {

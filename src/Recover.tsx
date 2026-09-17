@@ -16,6 +16,13 @@ import type { CardFinding, Group } from './lib/donate';
  * card data is read into memory to compute a hash and is never displayed, never
  * stored and never sent. What comes out the other end is a 33-byte public key, which
  * is a fact about the DMV and not about the person holding the card.
+ *
+ * Three of those keys are now known, which changes what the page should ask for. New
+ * York, Virginia and North Carolina are answered: a card from one of them recovers a key
+ * already shipped in verifyId.ts, or it recovers junk because the card is a novelty. The
+ * page shows either outcome and asks for neither. South Carolina and Wisconsin are the
+ * only jurisdictions it solicits, because they are the only ones where a stranger's cards
+ * can still tell anyone something.
  */
 const Recover: React.FC = () => {
   const navigate = useNavigate();
@@ -64,9 +71,21 @@ const Recover: React.FC = () => {
 
   const pick = (list: FileList | null) => list && void addFiles([...list]);
 
+  /**
+   * The results worth mailing in: only jurisdictions with no key at all.
+   *
+   * Asking for anything else invites the wrong post. A card from a jurisdiction whose key
+   * is known either recovers that key, which is old news, or recovers two random points,
+   * which is what a novelty card does and is worth nothing to anyone. Soliciting the
+   * second case would fill an inbox with junk hex. The cost is that a genuine key rotation
+   * in New York, Virginia or North Carolina no longer prompts anyone to write in; it still
+   * shows on that card's own panel, and the checker still reports it.
+   */
+  const sendable = groups.filter((g) => !g.keyed);
+
   const copy = async () => {
     const { report } = await import('./lib/donate');
-    await navigator.clipboard.writeText(report(groups));
+    await navigator.clipboard.writeText(report(sendable));
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -91,9 +110,9 @@ const Recover: React.FC = () => {
       <div className="font-mono text-sm">
         <h1 className="text-tui-bright text-lg mb-2">Recover a signing key</h1>
         <p className="text-tui-dim mb-6 leading-relaxed max-w-2xl">
-          North Carolina, South Carolina and Wisconsin sign their barcodes with a key nobody
-          has published. With ECDSA key recovery, multiple signed barcodes allow you to recover
-          the public key used to sign those barcodes.
+          This tool allows you to recover the public key used to sign IDs produced by Canadian Bank Note.
+          Each ID will return two potential public keys, so more than one sample will allow you to track down the true key.
+          South Carolina and Wisconsin both sign their barcodes with a key nobody has published.
         </p>
 
         <div
@@ -156,6 +175,10 @@ const Recover: React.FC = () => {
               {/*
                 Once two cards agree the answer is the key, so show the key. The losing
                 candidates are an artefact of how recovery works, not information.
+
+                Whether the key is one I already have changes nothing about showing it. It
+                only adds a line saying so, which is the fast answer to the question someone
+                holding a keyed state's card actually has.
               */}
               {g.settled ? (
                 <div className="break-all mono-read" style={{ color: 'var(--tui-green)' }}>
@@ -177,11 +200,26 @@ const Recover: React.FC = () => {
                   </div>
                 </>
               )}
+              {g.keyed && (
+                <p
+                  className="mt-2"
+                  style={{ color: g.alreadyKnown ? 'var(--tui-dim)' : 'var(--tui-yellow)' }}
+                >
+                  {g.alreadyKnown
+                    ? `Note: matches the key stored for ${g.jurisdiction}.`
+                    : `Note: this does not match the keys stored for ${g.jurisdiction}.`}
+                </p>
+              )}
             </div>
           </div>
         ))}
 
-        {groups.length > 0 && (
+        {/*
+          Only ask for what is actually missing. Keyed jurisdictions are excluded here and
+          from what the button copies, so neither a page full of New York cards nor a page
+          full of novelty ones produces a prompt to mail anything in.
+        */}
+        {sendable.length > 0 && (
           <div className="mb-6 flex gap-3 items-center flex-wrap">
             <button onClick={() => void copy()} className="tui-button">
               {copied ? 'copied' : 'copy the keys'}

@@ -22,7 +22,7 @@
  */
 import { parseAamva } from './aamva';
 import type { Card } from './aamva';
-import { findSignature, blankedMessage } from './verifyId';
+import { findSignature, blankedMessage, ISSUERS } from './verifyId';
 import { decodeAscii85 } from './ascii85';
 import { recoverPublicKeys } from './recoverKey';
 import { bytesToHex } from './ecdsa';
@@ -56,6 +56,23 @@ export interface Group {
   clusters: KeyCluster[];
   /** The single key agreed on by at least two distinct cards, if there is one. */
   settled?: string;
+  /**
+   * Whether a key already ships for this jurisdiction, matching or not.
+   *
+   * True means there is nothing here to ask a stranger for. New York, Virginia and North
+   * Carolina are answered, so a card from one of them is either confirmation or a card
+   * that does not check out, and neither is worth mailing in.
+   */
+  keyed: boolean;
+  /**
+   * The shipped key this recovery landed on, when it landed on one.
+   *
+   * Set means the cards agree with what is already published, and the page can say so.
+   * Unset on a keyed jurisdiction means they do not, which says something about those
+   * cards rather than about the state: almost always a novelty card, occasionally a key
+   * the state has retired.
+   */
+  alreadyKnown?: string;
 }
 
 /** A short, non-reversible tag for "this is the same card again". */
@@ -89,8 +106,7 @@ export async function examine(name: string, payload: string): Promise<CardFindin
       ...base,
       problem:
         card.iin === '636014'
-          ? 'California signs, but with a different construction, and it already publishes ' +
-            'the key. Nothing to recover here.'
+          ? 'California signs their barcodes but they already publish the key.'
           : 'No signature of the kind this page can use. Either the state does not sign, or ' +
             'this card predates when it started, or it signs some other way — the recovery ' +
             'here assumes the Canadian Bank Note recipe.',
@@ -123,7 +139,13 @@ export async function examine(name: string, payload: string): Promise<CardFindin
 
 /** Tally candidate keys per jurisdiction, counting each distinct card once. */
 export function tally(findings: CardFinding[]): Group[] {
-  const groups = new Map<string, Group & { seen: Set<string>; votes: Map<string, number> }>();
+  // keyed/alreadyKnown are decided once per group at the end, so the accumulator does
+  // not carry them.
+  type Pending = Omit<Group, 'keyed' | 'alreadyKnown'> & {
+    seen: Set<string>;
+    votes: Map<string, number>;
+  };
+  const groups = new Map<string, Pending>();
   for (const f of findings) {
     if (!f.candidates?.length || !f.field || !f.fingerprint) continue;
     const id = `${f.iin}/${f.field}`;
@@ -155,7 +177,24 @@ export function tally(findings: CardFinding[]): Group[] {
     const settled = clusters[0]?.cards >= 2 && clusters[0].cards > (clusters[1]?.cards ?? 0)
       ? clusters[0].key
       : undefined;
-    return { iin: g.iin, jurisdiction: g.jurisdiction, field: g.field, cards: g.cards, clusters, settled };
+    // With an answer, the question is whether the answer is old news. Without one, it
+    // is whether the shipped key is already among the candidates, which it will be
+    // for a single genuine card from a jurisdiction that is done: there is nothing
+    // left to pin down there either.
+    const issuer = ISSUERS.find((i) => i.iin === g.iin);
+    const alreadyKnown = settled
+      ? issuer?.publicKeys.find((k) => k === settled)
+      : issuer?.publicKeys.find((k) => clusters.some((c) => c.key === k));
+    return {
+      iin: g.iin,
+      jurisdiction: g.jurisdiction,
+      field: g.field,
+      cards: g.cards,
+      clusters,
+      settled,
+      keyed: !!issuer,
+      alreadyKnown,
+    };
   });
 }
 
