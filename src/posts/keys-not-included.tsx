@@ -174,7 +174,7 @@ Virginia   IIN 636000   field ZVA
                 It decodes the PDF417 barcode, parses the AAMVA format for any jurisdiction, and verifies the signature for the three that have one.
                 Everything runs in your browser so I will never see any image or extracted data from your ID.
                 The keys are per-jurisdiction and the construction is shared across the vendor's states. Virginia's signatures fail under New York's key and vice versa, which is the right design, because it means one state's compromise doesn't take the others with it.
-                A valid signature only proves the state issued that data. The photo is not signed, so a genuine barcode copied onto a counterfeit still passes.
+                A valid signature only proves the state issued that data. The photo is not signed (not included in the barcode at all), so a genuine barcode copied onto a counterfeit still passes.
             </p>
 
             <p>
