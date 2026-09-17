@@ -12,6 +12,7 @@ const Blog: React.FC = () => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
       if (e.key === 'h') navigate('/');
+      if (e.key === 'r') window.location.href = '/rss.xml';
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
@@ -19,9 +20,14 @@ const Blog: React.FC = () => {
 
   const statusBar = (
     <>
-      <Link to="/" className="shortcut-link">
-        <span className="text-tui-yellow">[h]</span>ome
-      </Link>
+      <div className="flex items-center gap-4 flex-wrap">
+        <Link to="/" className="shortcut-link">
+          <span className="text-tui-yellow">[h]</span>ome
+        </Link>
+        <a href="/rss.xml" className="shortcut-link">
+          <span className="text-tui-yellow">[r]</span>ss
+        </a>
+      </div>
       <span className="text-tui-dim">{blogPosts.length} post(s)</span>
     </>
   );

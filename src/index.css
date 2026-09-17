@@ -29,6 +29,7 @@
   --tui-orange: #ff9e64;
 
   font-family: 'Departure Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-mono-read: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   line-height: 1.6;
   font-weight: 400;
 
@@ -247,6 +248,15 @@ a {
   padding: 0.75rem 1rem;
 }
 
+/*
+ * Departure Mono is a pixel font: good as chrome, hard work when the reader has to
+ * decode a string character by character. Anything that is data rather than decoration
+ * (hex keys, barcode field values, code) gets a conventional mono instead.
+ */
+.mono-read {
+  font-family: var(--font-mono-read);
+}
+
 /* ── Prose Reading (long-form blog post layout) ────────── */
 
 .prose-reading {
@@ -316,7 +326,7 @@ a {
 }
 
 .prose-reading code {
-  font-family: 'Departure Mono', ui-monospace, monospace;
+  font-family: var(--font-mono-read);
   background-color: var(--tui-bg-hl);
   color: var(--tui-orange);
   padding: 0.125rem 0.375rem;
@@ -325,7 +335,7 @@ a {
 }
 
 .prose-reading pre {
-  font-family: 'Departure Mono', ui-monospace, monospace;
+  font-family: var(--font-mono-read);
   background-color: var(--tui-bg);
   border: 1px solid var(--tui-border);
   padding: 1rem;

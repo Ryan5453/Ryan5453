@@ -438,7 +438,7 @@ const Elements: React.FC<{ card: Card; ca: CaResult | null }> = ({ card, ca }) =
               <span className="inline-block w-40 shrink-0" style={{ color: 'var(--tui-dim)' }}>
                 {ELEMENT_NAMES[el.code] ?? ''}
               </span>
-              <span className="break-all" style={{ color: 'var(--tui-text)' }}>
+              <span className="break-all mono-read" style={{ color: 'var(--tui-text)' }}>
                 {el.value.length > 96 ? `${el.value.slice(0, 96)}…` : el.value || '—'}
               </span>
               {covered && (

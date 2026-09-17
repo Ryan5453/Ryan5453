@@ -55,12 +55,14 @@ const NotFound: React.FC = () => {
 
   const statusBar = (
     <>
-      <Link to="/" className="shortcut-link">
-        <span className="text-tui-yellow">[h]</span>ome
-      </Link>
-      <Link to="/blog" className="shortcut-link">
-        <span className="text-tui-yellow">[b]</span>log
-      </Link>
+      <div className="flex items-center gap-4 flex-wrap">
+        <Link to="/" className="shortcut-link">
+          <span className="text-tui-yellow">[h]</span>ome
+        </Link>
+        <Link to="/blog" className="shortcut-link">
+          <span className="text-tui-yellow">[b]</span>log
+        </Link>
+      </div>
       <span className="text-tui-dim">404</span>
     </>
   );

@@ -158,7 +158,7 @@ const Recover: React.FC = () => {
                 candidates are an artefact of how recovery works, not information.
               */}
               {g.settled ? (
-                <div className="break-all" style={{ color: 'var(--tui-green)' }}>
+                <div className="break-all mono-read" style={{ color: 'var(--tui-green)' }}>
                   {g.settled}
                 </div>
               ) : (
@@ -170,7 +170,7 @@ const Recover: React.FC = () => {
                   </p>
                   <div className="mt-2 space-y-1">
                     {g.clusters.map((c) => (
-                      <div key={c.key} className="break-all" style={{ color: 'var(--tui-text)' }}>
+                      <div key={c.key} className="break-all mono-read" style={{ color: 'var(--tui-text)' }}>
                         {c.key}
                       </div>
                     ))}

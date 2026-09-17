@@ -18,7 +18,7 @@ const Listing: React.FC<{ title: string; children: string }> = ({ title, childre
     <div className="tui-panel my-8">
         <span className="tui-panel-title font-mono">{title}</span>
         <pre
-            className="overflow-x-auto font-mono text-xs sm:text-sm"
+            className="overflow-x-auto mono-read text-xs sm:text-sm"
             /*
              * .prose-reading pre already paints a background, border and padding.
              * Inside the panel that would draw a second frame around the first, so
@@ -79,11 +79,11 @@ const KeysNotIncluded: React.FC = () => {
 
             <p>
                 California does not produce their IDs in house - they contract it out to a third-party vendor called IDEMIA, who produces ~61% of IDs/DLs in the U.S. (by jurisdiction, not physical quantity).
-                IDEMIA was likely the one who developed this digital signature system for CA, and they did an incredible job.
+                IDEMIA was likely the one who integrated this digital signature system for CA, and they did an incredible job, though the design credit goes to the W3C spec they used, written largely at Digital Bazaar.
             </p>
 
             <p>
-                Inside California's <code>ZC</code> subfile is a complete W3C Verifiable Credential Barcode, a credential compressed with CBOR-LD and signed with the <code>ecdsa-xi-2023</code> cryptosuite<sup><a href="#ref-cadmv" className="underline">2</a></sup>.
+                Inside California's <code>ZC</code> subfile is a complete <a href="https://w3c.github.io/vc-barcodes/" target="_blank" rel="noopener noreferrer" className="underline">W3C Verifiable Credential Barcode</a>, a credential compressed with CBOR-LD and signed with the <code>ecdsa-xi-2023</code> cryptosuite<sup><a href="#ref-cadmv" className="underline">2</a></sup>.
                 What gets signed is spelled out: a bitstring selects which AAMVA fields are covered, they are formatted as code-plus-value, joined with newlines, sorted, and hashed.
                 The credential points at <code>did:web:credentials.dmv.ca.gov</code>, which resolves to a plain JSON document at a well-known URL on the DMV's own domain<sup><a href="#ref-cadid" className="underline">3</a></sup>.
                 The URL leads to the barcode-signing public key, labeled <code>#vm-vcb-1</code>, a normal P-256 public key sitting there for anyone to download.
@@ -170,16 +170,17 @@ Virginia   IIN 636000   field ZVA
             </p>
 
             <p>
-                I built a little demo to check the signatures across California, New York, and Virginia: <Link to="/blog/keys-not-included/verify" className="underline">take a picture of the barcode and check it here</Link>.
+                I built a little demo to check the signatures across California, New York, and Virginia: take a picture of the barcode and check it <Link to="/blog/keys-not-included/verify" className="underline">here</Link>.
                 It decodes the PDF417 barcode, parses the AAMVA format for any jurisdiction, and verifies the signature for the three that have one.
                 Everything runs in your browser so I will never see any image or extracted data from your ID.
                 The keys are per-jurisdiction and the construction is shared across the vendor's states. Virginia's signatures fail under New York's key and vice versa, which is the right design, because it means one state's compromise doesn't take the others with it.
+                A valid signature only proves the state issued that data. The photo is not signed, so a genuine barcode copied onto a counterfeit still passes.
             </p>
 
             <p>
                 I ran my finished verifier against a counterfeit New York sample: to a blind eye its barcode is a pretty good clone of a real New York card. Same 484-byte payload length, same subfile directory, same field widths and padding, same card-revision date.
                 More importantly, the <code>ZNB</code> field is not empty and not garbage: it contains a well-formed 71-byte DER ECDSA signature, correctly Ascii85-encoded, with the right prefix and a plausible length.
-                But it fails the cryptographic check instantly, because it was signed with somebody else's key.
+                But it fails the cryptographic check instantly, because it was signed with a throwaway key, not the state's.
             </p>
             <p>
                 States do not design their own barcodes. They run procurements, and a very small number of companies build what gets printed.

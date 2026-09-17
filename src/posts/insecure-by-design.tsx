@@ -15,7 +15,7 @@ const InsecureByDesign: React.FC = () => {
       <p>
         Fraudulent IDs have become increasingly prevalent across the United States, particularly on college campuses.
         The ease of acquisition has grown dramatically in recent years, they can now be purchased openly on the internet and paid for using credit cards.
-        This accessibility has spawned an entire verification industry, with companies like <a href="https://www.intellicheck.com" className="underline hover:no-underline">IntelliCheck</a>, <a href="https://www.idsentry.com" className="underline hover:no-underline">IDSentry</a>, and <a href="https://www.idscan.net" className="underline hover:no-underline">VeriScan</a> offering specialized detection services.
+        This accessibility has spawned an entire verification industry, with companies like <a href="https://www.intellicheck.com" className="underline hover:no-underline">Intellicheck</a>, <a href="https://www.idsentry.com" className="underline hover:no-underline">IDSentry</a>, and <a href="https://www.idscan.net" className="underline hover:no-underline">IDScan.net</a> offering specialized detection services.
       </p>
 
       <p>
@@ -369,7 +369,7 @@ DAQ T16700285
       <p>
         I don't expect mDLs to fully replace physical IDs any time soon.
         Rollouts over the past few years have been incredibly slow, and I expect most Americans to continue carrying physical licenses for years, if not decades.
-        Companies like IntelliCheck and IDSentry provide genuine value in the current landscape.
+        Companies like Intellicheck and IDSentry provide genuine value in the current landscape.
         But their entire market exists because of a policy choice, not a technical limitation.
       </p>
 
